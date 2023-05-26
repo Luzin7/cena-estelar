@@ -1,0 +1,48 @@
+:root {
+  --bg-color: #141414;
+  --bg-color-secondary: #222222;
+  --text-color: #ffffff;
+  --text-color-2: #e5e5e5;
+  --text-color-secondary: #b4b4b4;
+  --text-color-hover: #808080;
+  --color-primary: #8209d1;
+  --color-secondary: #ffffff;
+  --color-secondary-2: #c3c2b1;
+  color-scheme: light dark;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.root_main {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 90vh;
+}
+
+.root_sectionHeader h2,
+.root_sectionAbout h2 {
+  font-size: 2rem;
+}
+.root_sectionHeader p,
+.root_sectionAbout p {
+  font-size: 1.1rem;
+  line-height: 1.7rem;
+}
+
+.root_sectionHeader h2 {
+  margin-bottom: 0.7rem;
+}
+.root_sectionHeader button {
+  padding: 0.7rem 1.7rem;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  font-weight: 700;
+  margin-top: 1.2rem;
+}
+
+.root_sectionAbout .about_title {
+  margin-bottom: 0.7rem;
+}/*# sourceMappingURL=content.css.map */

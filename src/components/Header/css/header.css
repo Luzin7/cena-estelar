@@ -1,0 +1,72 @@
+:root {
+  --bg-color: #141414;
+  --bg-color-secondary: #222222;
+  --text-color: #ffffff;
+  --text-color-2: #e5e5e5;
+  --text-color-secondary: #b4b4b4;
+  --text-color-hover: #808080;
+  --color-primary: #8209d1;
+  --color-secondary: #ffffff;
+  --color-secondary-2: #c3c2b1;
+  color-scheme: light dark;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem 0;
+  height: 10vh;
+}
+
+.header_logo {
+  display: flex;
+  place-items: center;
+  gap: 0.4rem;
+}
+
+#logo_icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.nav_list {
+  display: flex;
+  place-items: center;
+  list-style: none;
+  gap: 1.5rem;
+  font-weight: 500;
+}
+
+.list__item {
+  color: var(--text-color-secondary);
+  font-size: 1.2rem;
+}
+
+#input_search {
+  padding: 0.9rem 0.7rem;
+  border: none;
+  border-radius: 1em;
+  width: 50%;
+  outline: none;
+  background: var(--bg-color-secondary);
+  font-size: 1rem;
+}
+#input_search::-moz-placeholder {
+  font-weight: 500;
+  color: var(--text-color-secondary);
+}
+#input_search::placeholder {
+  font-weight: 500;
+  color: var(--text-color-secondary);
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    flex-flow: row wrap;
+  }
+}/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,44 @@
+@import "../../../styles/functions";
+@import "../../../styles/variables";
+
+.root_main {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 90vh;
+}
+
+.root_sectionHeader,
+.root_sectionAbout {
+  & h2 {
+    font-size: 2rem;
+  }
+
+  & p {
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+  }
+}
+
+.root_sectionHeader {
+  & h2 {
+    margin-bottom: 0.7rem;
+  }
+
+  & button {
+    padding: 0.7rem 1.7rem;
+    background: getColor(color-primary);
+    color: getColor(color-secondary);
+    font-weight: $bold;
+    margin-top: 1.2rem;
+  }
+}
+
+.root_sectionAbout {
+  & .about_title {
+    margin-bottom: 0.7rem;
+  }
+}

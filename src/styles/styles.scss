@@ -1,0 +1,101 @@
+@import "./variables";
+@import "./functions";
+
+::selection {
+  background: getColor(color-primary);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+body {
+  background: getColor(bg-color);
+}
+
+a {
+  color: getColor(text-color);
+  text-decoration: none;
+  transition: all 0.4s;
+
+  &:hover {
+    color: getColor(text-color-hover);
+  }
+}
+
+button {
+  border-radius: 0.7em;
+  border: none;
+  transition: all 0.1s;
+  cursor: pointer;
+
+  &:hover {
+    background: getColor(color-secondary);
+    color: getColor(color-primary);
+  }
+}
+
+#active {
+  color: getColor(text-color);
+  cursor: default;
+}
+
+.mainContainer {
+  width: 100%;
+  max-width: 98%;
+  margin: auto;
+  margin-left: 2vw;
+}
+
+.categoriesSection {
+  margin-bottom: 7vh;
+}
+
+.section_title {
+  color: getColor(text-color-2);
+  font-weight: $medium;
+  transition: all 0.4s;
+  font-size: 1.7rem;
+
+  &:hover {
+    color: getColor(text-color);
+  }
+}
+
+.carousel {
+  cursor: grab;
+  overflow: hidden;
+}
+
+.carousel_content {
+  display: flex;
+}
+
+.item_carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 280px;
+  width: auto;
+  // padding: 0.7em;
+  margin: 1em 0.4em;
+
+  & img {
+    width: auto;
+    height: 100%;
+    border-radius: 1em;
+    pointer-events: none;
+  }
+}
+
+#fullStar,
+#halfStar {
+  color: getColor(color-primary);
+}
+#emptyStar {
+  color: getColor(color-secondary-2);
+}

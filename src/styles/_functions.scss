@@ -1,0 +1,39 @@
+@import "./variables";
+
+$colors: (
+  bg-color: $color-bg,
+  bg-color-secondary: $color-bg-secondary,
+  text-color: $color-text,
+  text-color-2: $color-text-2,
+  text-color-secondary: $color-text-hover,
+  text-color-hover: $color-text-secondary,
+  color-primary: $color-primary,
+  color-secondary: $color-secondary,
+  color-secondary-2: $color-accent,
+);
+
+// $colors-dark: (
+//   bg-color: $bg-color-dark,
+//   color-primary: $color-primary-dark,
+//   color-primary-2: $color-primary-2-dark,
+//   color-secondary: $color-secondary-dark,
+// );
+
+:root {
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+  }
+  color-scheme: light dark;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     @each $name, $color in $colors-dark {
+//       --#{$name}: #{$color};
+//     }
+//   }
+// }
+
+@function getColor($color-name) {
+  @return var(--#{$color-name});
+}
