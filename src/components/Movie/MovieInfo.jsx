@@ -12,8 +12,10 @@ function MovieInfo() {
   const { allMovies } = useContext(ContentsContext);
   const { id } = useParams();
   const movieInfo = allMovies.find((movie) => movie.id === parseInt(id, 10));
-  const { name, description, longDescription, rating, img, media, genres } =
+  const { name, description, longDescription, rating, media, genres } =
     movieInfo;
+
+  window.document.title = name;
 
   const showGenre = () => {
     if (genres.length === 1) {
@@ -66,7 +68,7 @@ function MovieInfo() {
         .slice(0, 6);
 
       return movies.map((movie) => (
-        <Link to={`/movie/${movie.id}`} key={movie.id}>
+        <Link to={`/cena-estelar/movie/${movie.id}`} key={movie.id}>
           <img src={movie.img} alt={`front banner of ${movie.name}`} />
         </Link>
       ));
