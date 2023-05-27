@@ -1,16 +1,58 @@
 import React, { useContext, useLayoutEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 import { PropTypes } from 'prop-types';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ContentsContext } from '../../contexts/LoadContents';
 
-function Carousel({ title, carouselRef, carouselWidth, renderMovies }) {
+function Carousel({ title, contents }) {
+  const carouselRef = useRef();
+  const [carouselWidth, setCarouselWidth] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragScrollX, setDragScrollX] = useState(0);
+
+  useLayoutEffect(() => {
+    const totalWidthScroll = carouselRef.current?.scrollWidth;
+    const totalOffsetScroll = carouselRef.current?.offsetWidth;
+
+    setCarouselWidth(totalWidthScroll - totalOffsetScroll);
+  }, [contents]);
+
+  const handleDragStart = (event) => {
+    setIsDragging(true);
+    setDragStartX(event.clientX || event.touches[0].clientX);
+    setDragScrollX(carouselRef.current.scrollLeft);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleDragMove = (event) => {
+    if (!isDragging) return;
+
+    event.preventDefault();
+    const currentMoveX = event.clientX || event.touches[0].clientX;
+    const positionDiffX = (currentMoveX - dragStartX) / 7;
+    carouselRef.current.scrollLeft = dragScrollX - positionDiffX;
+  };
+
+  if (!contents || contents.length === 0) {
+    return null;
+  }
+
   return (
     <section className="home categoriesSection">
       <h2 className="section_title">{title}</h2>
       <motion.div
         ref={carouselRef}
         className="carousel"
-        whileTap={{ cursor: 'grabbing' }}
+        onMouseDown={handleDragStart}
+        onTouchStart={handleDragStart}
+        onMouseUp={handleDragEnd}
+        onTouchEnd={handleDragEnd}
+        onMouseMove={handleDragMove}
+        onTouchMove={handleDragMove}
       >
         <motion.div
           className="carousel_content"
@@ -19,81 +61,41 @@ function Carousel({ title, carouselRef, carouselWidth, renderMovies }) {
           initial={{ x: -100 }}
           animate={{ x: 0 }}
         >
-          {renderMovies()}
+          {contents.map(({ id, name, img }) => (
+            <motion.div className="item_carousel" key={id}>
+              {id === 0 ? (
+                <img src={img} alt={`front banner of ${name}`} />
+              ) : (
+                <Link to={`/cena-estelar/movie/${id}`}>
+                  <img src={img} alt={`front banner of ${name}`} />
+                </Link>
+              )}
+            </motion.div>
+          ))}
         </motion.div>
       </motion.div>
     </section>
   );
 }
-
 Carousel.propTypes = {
   title: PropTypes.string.isRequired,
-  carouselRef: PropTypes.object.isRequired,
-  carouselWidth: PropTypes.number.isRequired,
-  renderMovies: PropTypes.func.isRequired,
+  contents: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      img: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
-function MoviesByGenre() {
+function Content() {
   const { allMovies } = useContext(ContentsContext);
-
-  const carouselRefs = useRef({
-    lastSeens: useRef(null),
-    comedy: useRef(null),
-    drama: useRef(null),
-    suspense: useRef(null),
-    terror: useRef(null),
-    animation: useRef(null),
-  });
-  const [carouselWidths, setCarouselWidths] = useState({
-    lastSeens: 0,
-    comedy: 0,
-    drama: 0,
-    suspense: 0,
-    terror: 0,
-    animation: 0,
-  });
-
-  const calculateCarouselWidth = (carouselName) => {
-    const carouselRef = carouselRefs.current[carouselName];
-    const totalWidthScroll = carouselRef?.current?.scrollWidth;
-    const totalOffsetScroll = carouselRef?.current?.offsetWidth;
-    return totalWidthScroll - totalOffsetScroll;
-  };
-
-  useLayoutEffect(() => {
-    const carouselNames = Object.keys(carouselRefs.current);
-    const newCarouselWidths = {};
-
-    carouselNames.forEach((carouselName) => {
-      newCarouselWidths[carouselName] = calculateCarouselWidth(carouselName);
-    });
-
-    setCarouselWidths(newCarouselWidths);
-  }, [allMovies]);
 
   const filterMoviesByGenre = (genre) => {
     if (allMovies) {
       const movies = allMovies.filter((movie) => movie.genres.includes(genre));
 
-      return movies.map(({ id, name, img }) => (
-        <motion.div className="item_carousel" key={id}>
-          <img src={img} alt={`front banner of ${name}`} />
-        </motion.div>
-      ));
-    }
-
-    return null;
-  };
-
-  const lastSeens = () => {
-    if (allMovies) {
-      const movies = allMovies.sort((a, b) => b.id - a.id);
-
-      return movies.map(({ id, name, img }) => (
-        <motion.div className="item_carousel" key={id}>
-          <img src={img} alt={`front banner of ${name}`} />
-        </motion.div>
-      ));
+      return movies;
     }
 
     return null;
@@ -102,45 +104,27 @@ function MoviesByGenre() {
   return (
     <main className="home mainContainer">
       <Carousel
-        title="Vistos mais recentes"
-        carouselRef={carouselRefs.current.lastSeens}
-        carouselWidth={carouselWidths.lastSeens}
-        renderMovies={() => lastSeens()}
-      />
-      <Carousel
         title="Filmes de comédia"
-        carouselRef={carouselRefs.current.comedy}
-        carouselWidth={carouselWidths.comedy}
-        renderMovies={() => filterMoviesByGenre('comédia')}
+        contents={filterMoviesByGenre('comédia')}
       />
       <Carousel
         title="Filmes de drama"
-        carouselRef={carouselRefs.current.drama}
-        carouselWidth={carouselWidths.drama}
-        renderMovies={() => filterMoviesByGenre('drama')}
+        contents={filterMoviesByGenre('drama')}
       />
       <Carousel
         title="Filmes de suspense"
-        carouselRef={carouselRefs.current.suspense}
-        carouselWidth={carouselWidths.suspense}
-        renderMovies={() => filterMoviesByGenre('suspense')}
+        contents={filterMoviesByGenre('suspense')}
       />
       <Carousel
         title="Filmes de terror"
-        carouselRef={carouselRefs.current.terror}
-        carouselWidth={carouselWidths.terror}
-        renderMovies={() =>
-          filterMoviesByGenre('terror') || filterMoviesByGenre('horror')
-        }
+        contents={filterMoviesByGenre('terror')}
       />
       <Carousel
-        title="Animações"
-        carouselRef={carouselRefs.current.animation}
-        carouselWidth={carouselWidths.animation}
-        renderMovies={() => filterMoviesByGenre('animação')}
+        title="Filmes de animação"
+        contents={filterMoviesByGenre('animação')}
       />
     </main>
   );
 }
 
-export default MoviesByGenre;
+export default Content;
