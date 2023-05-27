@@ -44,16 +44,16 @@ function Header() {
               Filmes
             </li>
           </Link>
-          {/* <Link to={SERIES}>
-            <li className="list__item">Séries</li>
-          </Link> */}
+          <Link to={'/'}>
+            <li className="list__item">Gêneros</li>
+          </Link>
         </ul>
       </nav>
-      <input
+      {/* <input
         type="text"
         placeholder="Busque por um filme, série ou anime..."
         id="input_search"
-      />
+      /> */}
     </header>
   );
 }
