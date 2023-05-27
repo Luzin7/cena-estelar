@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { BsStars } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
-import { HOME, MOVIES, ROOT, SERIES } from '../../utils/paths';
+import { Link, useLocation } from 'react-router-dom';
+import { HOME, MOVIES, ROOT } from '../../utils/paths';
 import './css/header.css';
 
 function Header() {
+  const [isHomePage, setIsHomePage] = useState(false);
+  const [isMoviesPage, setIsMoviesPage] = useState(false);
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    const homePath = pathname === '/cena-estelar/home';
+    const moviesPath = pathname === '/cena-estelar/movies';
+
+    if (homePath) {
+      setIsMoviesPage(false);
+      setIsHomePage(!isHomePage);
+    }
+    if (moviesPath) {
+      setIsHomePage(false);
+      setIsMoviesPage(!isMoviesPage);
+    }
+  }, [pathname]);
+
   return (
     <header className="header">
       <Link to={ROOT}>
@@ -17,16 +35,18 @@ function Header() {
       <nav className="header_nav">
         <ul className="nav_list">
           <Link to={HOME}>
-            <li id="active" className="list__item">
+            <li id={isHomePage ? 'active' : ''} className="list__item home">
               Início
             </li>
           </Link>
           <Link to={MOVIES}>
-            <li className="list__item">Filmes</li>
+            <li id={isMoviesPage ? 'active' : ''} className="list__item movies">
+              Filmes
+            </li>
           </Link>
-          <Link to={SERIES}>
+          {/* <Link to={SERIES}>
             <li className="list__item">Séries</li>
-          </Link>
+          </Link> */}
         </ul>
       </nav>
       <input
