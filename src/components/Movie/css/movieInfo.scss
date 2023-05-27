@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50vw;
+    width: 70vw;
     margin: auto;
 
     & .overview_container {
@@ -19,7 +19,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     cursor: default;
 
     & .content_thumbnail {
@@ -132,13 +132,90 @@
       display: flex;
       flex-flow: row wrap;
       justify-content: center;
-      align-items: stretch;
+
       gap: 1em;
       & img {
         border-radius: 1em;
         width: 150px;
-        height: auto;
+        height: 100%;
+        border: 2px solid rgba(0, 0, 0, 0);
+        transition: all 0.2s;
+
+        &:hover {
+          border: 2px solid getColor(color-primary);
+        }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    min-height: 88vh;
+
+    &.mainContainer {
+      & .overview_container {
+        margin-right: 0;
+      }
+    }
+
+    & .content_summary {
+      & .content_thumbnail {
+        & figure {
+          & img {
+            max-width: 90vw;
+            height: auto;
+          }
+        }
+        &:hover {
+          .summary_side {
+            opacity: 0;
+          }
+          & figure {
+            & img {
+              max-width: 90vw;
+              height: auto;
+            }
+          }
+        }
+      }
+
+      & .summary_side {
+        & .genres {
+          font-size: 3.2vw;
+        }
+        & .content_rating {
+          & .stars {
+            font-size: 4vh;
+            margin-right: 7px;
+          }
+
+          & .rating {
+            font-size: 4vh;
+          }
+        }
+      }
+    }
+    .content_review {
+      & .review_title__wrap {
+        & h2 {
+          font-size: 1.5em;
+        }
+
+        & small {
+          font-size: 1em;
+          font-style: italic;
+          color: getColor(text-color-secondary);
+        }
+      }
+
+      & p {
+        text-align: justify;
+        font-size: 1.1em;
+      }
+    }
+    & .recommendation {
+      display: none;
     }
   }
 }
