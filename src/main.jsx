@@ -5,6 +5,7 @@ import router from './routes/index';
 import { ContentsProvider } from './contexts/LoadContents';
 
 import './styles/styles.css';
+import './styles/responsive.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
