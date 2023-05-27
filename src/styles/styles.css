@@ -92,10 +92,10 @@ button:hover {
   justify-content: center;
   height: 280px;
   width: auto;
-  margin: 1em 0.4em;
+  margin: 1em 0.7em;
 }
 .item_carousel img {
-  width: auto;
+  width: 200px;
   height: 100%;
   border-radius: 1em;
   pointer-events: none;
