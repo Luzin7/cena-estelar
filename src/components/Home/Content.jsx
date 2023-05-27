@@ -7,6 +7,9 @@ import { ContentsContext } from '../../contexts/LoadContents';
 function Carousel({ title, contents }) {
   const carouselRef = useRef();
   const [carouselWidth, setCarouselWidth] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragScrollX, setDragScrollX] = useState(0);
 
   useLayoutEffect(() => {
     const totalWidthScroll = carouselRef.current?.scrollWidth;
@@ -14,6 +17,25 @@ function Carousel({ title, contents }) {
 
     setCarouselWidth(totalWidthScroll - totalOffsetScroll);
   }, [contents]);
+
+  const handleDragStart = (event) => {
+    setIsDragging(true);
+    setDragStartX(event.clientX || event.touches[0].clientX);
+    setDragScrollX(carouselRef.current.scrollLeft);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleDragMove = (event) => {
+    if (!isDragging) return;
+
+    event.preventDefault();
+    const currentMoveX = event.clientX || event.touches[0].clientX;
+    const positionDiffX = (currentMoveX - dragStartX) / 7;
+    carouselRef.current.scrollLeft = dragScrollX - positionDiffX;
+  };
 
   if (!contents || contents.length === 0) {
     return null;
@@ -25,7 +47,12 @@ function Carousel({ title, contents }) {
       <motion.div
         ref={carouselRef}
         className="carousel"
-        whileTap={{ cursor: 'grabbing' }}
+        onMouseDown={handleDragStart}
+        onTouchStart={handleDragStart}
+        onMouseUp={handleDragEnd}
+        onTouchEnd={handleDragEnd}
+        onMouseMove={handleDragMove}
+        onTouchMove={handleDragMove}
       >
         <motion.div
           className="carousel_content"
@@ -36,9 +63,13 @@ function Carousel({ title, contents }) {
         >
           {contents.map(({ id, name, img }) => (
             <motion.div className="item_carousel" key={id}>
-              <Link to={`/movie/${id}`} className="item_carousel">
+              {id === 0 ? (
                 <img src={img} alt={`front banner of ${name}`} />
-              </Link>
+              ) : (
+                <Link to={`/cena-estelar/movie/${id}`}>
+                  <img src={img} alt={`front banner of ${name}`} />
+                </Link>
+              )}
             </motion.div>
           ))}
         </motion.div>
@@ -58,7 +89,7 @@ Carousel.propTypes = {
 };
 
 function Content() {
-  const { allContentsTypes } = useContext(ContentsContext);
+  const { allContentsTypes, wishlist } = useContext(ContentsContext);
 
   const bestRatings = () => {
     if (!allContentsTypes || allContentsTypes.length === 0) {
@@ -77,14 +108,20 @@ function Content() {
     const content = [...allContentsTypes].sort((a, b) => b.id - a.id);
     return content;
   };
+  const getWishlist = () => {
+    if (!wishlist || wishlist.length === 0) {
+      return null;
+    }
+
+    const content = [...wishlist.movies].sort((a, b) => b.id - a.id);
+    return content;
+  };
 
   return (
     <main className="home mainContainer">
       <Carousel title="Vistos mais recentes" contents={lastSeens()} />
       <Carousel title="Mais bem avaliados" contents={bestRatings()} />
-      <section className="home categoriseSection">
-        <h2 className="section_title">Em breve</h2>
-      </section>
+      <Carousel title="Em breve" contents={getWishlist()} />
     </main>
   );
 }
