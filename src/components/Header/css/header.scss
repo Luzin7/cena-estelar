@@ -5,11 +5,11 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
+  justify-content: space-around;
   margin: auto;
   padding: 1.5rem 0;
   height: 10vh;
+  background: getColor(bg-color);
 }
 
 .header_logo {
@@ -34,6 +34,11 @@
 .list__item {
   color: getColor(text-color-secondary);
   font-size: 1.2rem;
+  transition: all 0.2s;
+
+  &:hover {
+    color: getColor(text-color-hover);
+  }
 }
 
 #input_search {
@@ -53,6 +58,11 @@
 
 @media only screen and (max-width: 600px) {
   .header {
-    flex-flow: row wrap;
+    justify-content: center;
+    height: 12vh;
+  }
+
+  .header_logo {
+    display: none;
   }
 }
