@@ -1,13 +1,14 @@
 :root {
   --bg-color: #141414;
-  --bg-color-secondary: #222222;
-  --text-color: #ffffff;
+  --bg-color-secondary: #222;
+  --text-color: #fff;
   --text-color-2: #e5e5e5;
   --text-color-secondary: #b4b4b4;
   --text-color-hover: #808080;
   --color-primary: #8209d1;
-  --color-secondary: #ffffff;
+  --color-secondary: #fff;
   --color-secondary-2: #c3c2b1;
+
   color-scheme: light dark;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -15,120 +16,139 @@
 .content {
   min-height: 90vh;
 }
+
 .content.mainContainer {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
-  width: 50vw;
   margin: auto;
+  width: 50vw;
 }
+
 .content.mainContainer .overview_container {
   margin-right: 2em;
 }
+
 .content .content_summary {
+  align-items: center;
+  cursor: default;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
   margin-bottom: 2em;
-  cursor: default;
 }
+
 .content .content_summary .content_thumbnail {
   position: relative;
 }
+
 .content .content_summary .content_thumbnail figure img {
-  transition: all 0.4s;
-  filter: brightness(0.25);
-  width: auto;
-  height: 40vh;
   border-radius: 1em;
+  filter: brightness(0.25);
+  height: 40vh;
   pointer-events: none;
+  transition: all 0.4s;
+  width: auto;
 }
+
 .content .content_summary .content_thumbnail figcaption {
-  opacity: 0.4;
   color: var(--text-color-secondary);
+  opacity: 0.4;
   text-align: center;
 }
+
 .content .content_summary .content_thumbnail:hover .summary_side {
   opacity: 0;
 }
+
 .content .content_summary .content_thumbnail:hover figure img {
-  filter: brightness(1);
-  width: auto;
-  height: 40vh;
   border-radius: 1em;
+  filter: brightness(1);
+  height: 40vh;
   pointer-events: none;
+  width: auto;
 }
+
 .content .content_summary .summary_side {
-  transition: all 0.4s;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  align-items: center;
+  inset: 0;
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
   gap: 2rem;
+  justify-content: center;
+  position: absolute;
+  transition: all 0.4s;
 }
+
 .content .content_summary .summary_side .genres {
-  font-weight: 500;
   font-size: 1.5rem;
+  font-weight: 500;
 }
+
 .content .content_summary .summary_side .content_rating {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
+
 .content .content_summary .summary_side .content_rating .stars {
-  display: flex;
   align-items: center;
-  font-weight: 700;
+  display: flex;
   font-size: 4em;
+  font-weight: 700;
   margin-right: 14px;
 }
+
 .content .content_summary .summary_side .content_rating .rating {
   color: var(--text-color);
-  font-weight: 700;
   font-size: 2em;
+  font-weight: 700;
 }
+
 .content .content_review {
   padding: 2em 0;
   text-align: justify;
 }
+
 .content .content_review .review_title__wrap {
   margin-bottom: 2em;
   text-align: center;
 }
+
 .content .content_review .review_title__wrap h2 {
   font-size: 2.5em;
 }
+
 .content .content_review .review_title__wrap small {
+  color: var(--text-color-secondary);
   font-size: 1em;
   font-style: italic;
-  color: var(--text-color-secondary);
 }
+
 .content .content_review p {
-  line-height: 1.7em;
   color: var(--text-color-2);
   font-size: 1.2em;
+  line-height: 1.7em;
 }
+
 .content .recommendation {
-  text-align: center;
   min-width: 20vw;
+  text-align: center;
 }
+
 .content .recommendation h2 {
   padding-bottom: 1.5em;
 }
+
 .content .recommendation .recommended {
+  align-items: stretch;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: stretch;
   gap: 1em;
+  justify-content: center;
 }
+
 .content .recommendation .recommended img {
   border-radius: 1em;
-  width: 150px;
   height: auto;
-}/*# sourceMappingURL=movieInfo.css.map */
+  width: 150px;
+}
