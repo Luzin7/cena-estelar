@@ -5,6 +5,20 @@
   background: getColor(color-primary);
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: getColor(color-primary);
+  border-radius: 1em;
+  border: 1px solid getColor(bg-color);
+}
+
+::-webkit-scrollbar-track {
+  background: getColor(bg-color-secondary);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +28,11 @@
 }
 
 body {
-  background: getColor(bg-color);
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(180deg, rgba(0, 0, 0, 0.42620798319327735) 0%, rgba(20, 20, 20, 1) 15%);
+  background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.42620798319327735) 0%, rgba(20, 20, 20, 1) 15%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.42620798319327735) 0%, rgba(20, 20, 20, 1) 15%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#141414",GradientType=1);
 }
 
 a {
@@ -45,7 +63,6 @@ button {
 }
 
 .mainContainer {
-  width: 100%;
   max-width: 98%;
   margin: auto;
   margin-left: 2vw;
@@ -77,18 +94,22 @@ button {
 
 .item_carousel {
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 280px;
   width: auto;
-  // padding: 0.7em;
   margin: 1em 0.7em;
 
   & img {
     width: 200px;
     height: 100%;
     border-radius: 1em;
-    pointer-events: none;
+    border: 2px solid rgba(0, 0, 0, 0);
+    transition: all 0.2s;
+
+    &:hover {
+      border: 2px solid getColor(color-primary);
+      transform: scale(1.1);
+    }
   }
 }
 
