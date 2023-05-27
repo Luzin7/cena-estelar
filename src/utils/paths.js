@@ -1,4 +1,4 @@
-export const ROOT = '/';
+export const ROOT = '/cena-estelar/';
 export const HOME = '/home';
 export const MOVIES = '/movies';
 export const SERIES = '/series';
