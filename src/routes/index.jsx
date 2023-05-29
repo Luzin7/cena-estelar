@@ -1,43 +1,27 @@
 import React, { Suspense, lazy } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
-import Root from '../pages/Root';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ROOT, HOME, MOVIES, MOVIE } from '../utils/paths';
 import Error from '../pages/Error';
 
+const Root = lazy(() => import('../pages/Root'));
 const Home = lazy(() => import('../pages/Home'));
 const Movies = lazy(() => import('../pages/Movies'));
 const Movie = lazy(() => import('../pages/Movie'));
 
-const router = createBrowserRouter([
-  {
-    path: ROOT,
-    element: <Root />,
-    errorElement: <Error />,
-  },
-  {
-    path: HOME,
-    element: (
-      <Suspense fallback={<h1>Carregando...</h1>}>
-        <Home />
+function Index() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<h1>Carregando..</h1>}>
+        <Routes>
+          <Route path={ROOT} element={<Root />} />
+          <Route path={HOME} element={<Home />} />
+          <Route path={MOVIES} element={<Movies />} />
+          <Route path={MOVIE} element={<Movie />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
       </Suspense>
-    ),
-  },
-  {
-    path: MOVIES,
-    element: (
-      <Suspense fallback={<h1>Carregando...</h1>}>
-        <Movies />
-      </Suspense>
-    ),
-  },
-  {
-    path: MOVIE,
-    element: (
-      <Suspense fallback={<h1>Carregando...</h1>}>
-        <Movie />
-      </Suspense>
-    ),
-  },
-]);
+    </BrowserRouter>
+  );
+}
 
-export default router;
+export default Index;
