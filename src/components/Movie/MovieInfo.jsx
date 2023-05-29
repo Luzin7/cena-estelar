@@ -68,7 +68,7 @@ function MovieInfo() {
         .slice(0, 6);
 
       return movies.map((movie) => (
-        <Link to={`/cena-estelar/movie/${movie.id}`} key={movie.id}>
+        <Link to={`/movie/${movie.id}`} key={movie.id}>
           <img src={movie.img} alt={`front banner of ${movie.name}`} />
         </Link>
       ));

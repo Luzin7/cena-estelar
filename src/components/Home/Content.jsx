@@ -66,7 +66,7 @@ function Carousel({ title, contents }) {
               {id === 0 ? (
                 <img src={img} alt={`front banner of ${name}`} />
               ) : (
-                <Link to={`/cena-estelar/movie/${id}`}>
+                <Link to={`/movie/${id}`}>
                   <img src={img} alt={`front banner of ${name}`} />
                 </Link>
               )}
