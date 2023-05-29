@@ -421,6 +421,42 @@ const VIEWED_CONTENT = {
       media: 'https://media.tenor.com/zmiGNmB_6bMAAAAC/perfect-blue-anime.gif',
       genres: ['mistério', 'suspense', 'drama', 'animação'],
     },
+    {
+      id: 37,
+      name: 'Super Mario Bros. - O Filme',
+      description: 'Nada mais que o esperado. Um prato cheio para os fãs.',
+      longDescription:
+        'O filme tem um tom divertido e leve, com muitas piadas e referências ao jogo. O filme não é uma obra-prima, mas cumpre o seu papel de entreter e agradar os fãs.',
+      rating: '3.7',
+      img: 'https://www.universalpics.com.br/tl_files/content/movies/super_mario_bros/posters/03.jpg',
+      media:
+        'https://www.omelete.com.br/webstories/super-mario-bros-saiba-o-elenco/assets/2.gif',
+      genres: ['comédia', 'animação'],
+    },
+    {
+      id: 38,
+      name: 'O Menu',
+      description: 'Era só pagar os $9,95.',
+      longDescription:
+        'Claramente uma carta de repúdio a quem se acha cult e paga comida cara. Ficou óbvio no final que é OBVIAMENTE um comercial da BK.',
+      rating: '3.7',
+      img: 'https://br.web.img2.acsta.net/pictures/22/08/17/22/25/2724945.jpg',
+      media:
+        'https://64.media.tumblr.com/36f63bfe55f48f64b21ea7ec16762e8e/0db11b035c5c304c-8e/s540x810/aaec5ea64fb5e1a7c4fa3070da9e4a766dd48560.gif',
+      genres: ['suspense'],
+    },
+    {
+      id: 39,
+      name: 'Todo Mundo Quase Morto',
+      description:
+        'COVID-19 se o presidente do mundo todo fosse [comentário removido pelo TSE]',
+      longDescription: `Um bom filme, por incrível que pareça. Mesmo sendo de 2004 conta com um humor atemporal e sem ofensas que eram moda nessa época. A história, mesmo sendo rasa, é bem trabalhada para um filme de comédia que mistura algumas partes meio macabras. Isso gerou uma mistureba diferenciada e, na nossa opinião, boa.`,
+      rating: '3.5',
+      img: 'https://br.web.img3.acsta.net/c_310_420/pictures/14/09/06/06/08/169240.jpg',
+      media:
+        'https://media.tenor.com/wiGkYFnDjbkAAAAC/shaun-of-the-dead-shaun-of-the-dead-gifs.gif',
+      genres: ['suspense'],
+    },
   ],
   series: [
     {
