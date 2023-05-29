@@ -5,10 +5,11 @@
   min-height: 90vh;
   &.mainContainer {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     width: 70vw;
     margin: auto;
+    margin-top: 2.5em;
 
     & .overview_container {
       margin-right: 2em;
@@ -151,7 +152,7 @@
 
 @media only screen and (max-width: 600px) {
   .content {
-    min-height: 88vh;
+    min-height: 90vh;
 
     &.mainContainer {
       & .overview_container {
@@ -216,6 +217,228 @@
     }
     & .recommendation {
       display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .content {
+    min-height: 90vh;
+
+    &.mainContainer {
+      align-items: center;
+
+      flex-flow: column;
+      & .overview_container {
+        margin-right: 0;
+      }
+    }
+
+    & .content_summary {
+      & .content_thumbnail {
+        & figure {
+          & img {
+            max-width: 90vw;
+            height: auto;
+          }
+        }
+        &:hover {
+          .summary_side {
+            opacity: 0;
+          }
+          & figure {
+            & img {
+              max-width: 90vw;
+              height: auto;
+            }
+          }
+        }
+      }
+
+      & .summary_side {
+        & .genres {
+          font-size: 2.5vw;
+        }
+        & .content_rating {
+          & .stars {
+            font-size: 5vh;
+            margin-right: 7px;
+          }
+
+          & .rating {
+            font-size: 3.5vh;
+          }
+        }
+      }
+    }
+    .content_review {
+      & .review_title__wrap {
+        & h2 {
+          font-size: 2em;
+        }
+
+        & small {
+          font-size: 0.85em;
+          font-style: italic;
+          color: getColor(text-color-secondary);
+        }
+      }
+
+      & p {
+        text-align: justify;
+        font-size: 2.5vh;
+      }
+    }
+    & .recommendation {
+      min-width: 90vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .content {
+    min-height: 90vh;
+
+    &.mainContainer {
+      align-items: center;
+      margin-top: 2em;
+      flex-flow: column;
+      & .overview_container {
+        margin-right: 0;
+      }
+    }
+
+    & .content_summary {
+      & .content_thumbnail {
+        & figure {
+          & img {
+            max-width: 90vw;
+            height: auto;
+          }
+        }
+        &:hover {
+          .summary_side {
+            opacity: 0;
+          }
+          & figure {
+            & img {
+              max-width: 90vw;
+              height: auto;
+            }
+          }
+        }
+      }
+
+      & .summary_side {
+        & .genres {
+          font-size: 1.8vw;
+        }
+        & .content_rating {
+          & .stars {
+            font-size: 5vh;
+            margin-right: 7px;
+          }
+
+          & .rating {
+            font-size: 3.5vh;
+          }
+        }
+      }
+    }
+    .content_review {
+      & .review_title__wrap {
+        & h2 {
+          font-size: 2em;
+        }
+
+        & small {
+          font-size: 0.85em;
+          font-style: italic;
+          color: getColor(text-color-secondary);
+        }
+      }
+
+      & p {
+        text-align: justify;
+        font-size: 2.5vh;
+      }
+    }
+    & .recommendation {
+      min-width: 90vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .content {
+    min-height: 90vh;
+
+    &.mainContainer {
+      align-items: flex-start;
+      margin-top: 2em;
+      & .overview_container {
+        margin-right: 0;
+      }
+    }
+
+    & .content_summary {
+      & .content_thumbnail {
+        & figure {
+          & img {
+            max-width: 90vw;
+            height: auto;
+          }
+        }
+        &:hover {
+          .summary_side {
+            opacity: 0;
+          }
+          & figure {
+            & img {
+              max-width: 90vw;
+              height: auto;
+            }
+          }
+        }
+      }
+
+      & .summary_side {
+        & .genres {
+          font-size: 1.5vw;
+        }
+        & .content_rating {
+          & .stars {
+            font-size: 7vh;
+            margin-right: 7px;
+          }
+
+          & .rating {
+            font-size: 3.5vh;
+          }
+        }
+      }
+    }
+    .content_review {
+      & .review_title__wrap {
+        & h2 {
+          font-size: 2em;
+        }
+
+        & small {
+          font-size: 0.85em;
+          font-style: italic;
+          color: getColor(text-color-secondary);
+        }
+      }
+
+      & p {
+        text-align: justify;
+        font-size: 2.5vh;
+      }
+    }
+    & .recommendation {
+      min-width: 40vw;
+      flex-flow: column nowrap;
     }
   }
 }
