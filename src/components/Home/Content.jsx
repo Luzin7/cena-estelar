@@ -8,12 +8,22 @@ import {
 } from '../../functions/sortArrays';
 
 function Content() {
-  const { allMovies, wishlist } = useContext(ContentsContext);
+  const { allMovies, wishlist, allSeries } = useContext(ContentsContext);
 
   return (
     <main className="home mainContainer">
-      <Carousel title="Vistos mais recentes" contents={lastSeens(allMovies)} />
-      <Carousel title="Mais bem avaliados" contents={bestRatings(allMovies)} />
+      <Carousel
+        title="Filmes vistos recentemente"
+        contents={lastSeens(allMovies)}
+      />
+      <Carousel
+        title="Filmes bem avaliados"
+        contents={bestRatings(allMovies)}
+      />
+      <Carousel
+        title="Series vistas recentemente"
+        contents={lastSeens(allSeries)}
+      />
       <Carousel title="Em breve" contents={getWishlist(wishlist)} />
     </main>
   );
