@@ -469,19 +469,15 @@ const VIEWED_CONTENT = {
       media: '',
       genres: ['ficção científica', 'horror'],
     },
-  ],
-  animes: [
     {
-      id: 1,
-      name: 'Azul Perfeito',
-      description:
-        'Christopher Nolan tem que aprender muito pra fazer um filme desse.',
-      longDescription:
-        'Parece brincadeira, mas esse filme te faz de palhaço. A história é sobre a Mima, uma popstar que resolve ser atriz e aí as coisas começam a ficar esquisitas. Tem crítica, tem reviravolta, tem detalhes na trama que te deixam sem palavras. E o mais incrível é que a gente nunca sabe o que é realidade e o que é imaginação.',
-      rating: '4.1',
-      img: 'https://upload.wikimedia.org/wikipedia/pt/a/a1/Perfect_Blue.jpg',
-      media: 'https://media.tenor.com/zmiGNmB_6bMAAAAC/perfect-blue-anime.gif',
-      genres: ['mistério', 'suspense', 'drama', 'animação'],
+      id: 2,
+      name: 'Ruptura',
+      description: '',
+      longDescription: '',
+      rating: '',
+      img: '',
+      media: '',
+      genres: ['ficção científica', 'horror'],
     },
   ],
 };

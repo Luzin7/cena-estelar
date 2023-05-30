@@ -15,8 +15,9 @@ function Index() {
         <Routes>
           <Route path={ROOT} element={<Root />} />
           <Route path={HOME} element={<Home />} />
-          <Route path={MOVIES} element={<Movies />} />
-          <Route path={MOVIE} element={<Movie />} />
+          <Route path={MOVIES} element={<Movies />}>
+            <Route path={MOVIE} element={<Movie />} />
+          </Route>
           <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>
