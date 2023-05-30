@@ -41,21 +41,6 @@
   }
 }
 
-#input_search {
-  padding: 0.9rem 0.7rem;
-  border: none;
-  border-radius: 1em;
-  width: 50%;
-  outline: none;
-  background: getColor(bg-color-secondary);
-  font-size: 1rem;
-
-  &::placeholder {
-    font-weight: $medium;
-    color: getColor(text-color-secondary);
-  }
-}
-
 @media only screen and (max-width: 600px) {
   .header {
     justify-content: center;
