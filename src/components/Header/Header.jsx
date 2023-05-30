@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { BsStars } from 'react-icons/bs';
-import { Link, useLocation } from 'react-router-dom';
+import { BsStars, BsSearch } from 'react-icons/bs';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HOME, MOVIES, ROOT } from '../../utils/paths';
 import './css/header.css';
 
@@ -8,10 +8,11 @@ function Header() {
   const [isHomePage, setIsHomePage] = useState(false);
   const [isMoviesPage, setIsMoviesPage] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
-    const homePath = pathname === '/cena-estelar/home';
-    const moviesPath = pathname === '/cena-estelar/movies';
+    const homePath = pathname === HOME;
+    const moviesPath = pathname === MOVIES;
 
     if (homePath) {
       setIsMoviesPage(false);
@@ -49,10 +50,11 @@ function Header() {
           </Link>
         </ul>
       </nav>
-      {/* <input
-        type="text"
-        placeholder="Busque por um filme, série ou anime..."
-        id="input_search"
+      {/* <BsSearch
+        id="search"
+        onClick={() => {
+          navigate(HOME);
+        }}
       /> */}
     </header>
   );
