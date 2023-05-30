@@ -1,14 +1,14 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { BsStars, BsSearch } from 'react-icons/bs';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { BsStars } from 'react-icons/bs';
+import { Link, useLocation } from 'react-router-dom';
 import { HOME, MOVIES, ROOT } from '../../utils/paths';
 import './css/header.css';
+import SearchBar from '../SearchBar/SearchBar';
 
 function Header() {
   const [isHomePage, setIsHomePage] = useState(false);
   const [isMoviesPage, setIsMoviesPage] = useState(false);
   const { pathname } = useLocation();
-  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     const homePath = pathname === HOME;
@@ -50,12 +50,7 @@ function Header() {
           </Link>
         </ul>
       </nav>
-      {/* <BsSearch
-        id="search"
-        onClick={() => {
-          navigate(HOME);
-        }}
-      /> */}
+      <SearchBar />
     </header>
   );
 }
