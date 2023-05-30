@@ -9,7 +9,7 @@ export const ContentsProvider = ({ children }) => {
   const [allMovies, setAllMovies] = useState(null);
   const [allSeries, setAllSeries] = useState(null);
   const [allAnimes, setAllAnimes] = useState(null);
-  // const [allContentsTypes, setAllContentsTypes] = useState(null);
+  const [allContentsTypes, setAllContentsTypes] = useState(null);
   const [wishlist, setWishlist] = useState(null);
 
   const loadContents = async () => {
@@ -26,7 +26,7 @@ export const ContentsProvider = ({ children }) => {
       setAllMovies(movies);
       setAllSeries(series);
       setAllAnimes(animes);
-      // setAllContentsTypes(movies, series, animes);
+      setAllContentsTypes(movies, series, animes);
     }
     if (!contents) {
       const allContents = getContents();
@@ -35,7 +35,7 @@ export const ContentsProvider = ({ children }) => {
       setAllMovies(movies);
       setAllSeries(series);
       setAllAnimes(animes);
-      // setAllContentsTypes(movies, series, animes);
+      setAllContentsTypes({ movies, series });
     }
   };
 
@@ -61,8 +61,8 @@ export const ContentsProvider = ({ children }) => {
         setAllAnimes,
         wishlist,
         setWishlist,
-        // allContentsTypes,
-        // setAllContentsTypes,
+        allContentsTypes,
+        setAllContentsTypes,
       }}
     >
       {children}

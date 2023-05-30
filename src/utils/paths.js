@@ -1,5 +1,6 @@
 export const ROOT = '/';
 export const HOME = '/home';
+export const SEARCH = '/search';
 export const MOVIES = '/movies';
 export const SERIES = '/series';
 export const ANIMES = '/animes';

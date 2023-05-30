@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ROOT, HOME, MOVIES, MOVIE } from '../utils/paths';
+import { ROOT, HOME, MOVIES, MOVIE, SEARCH } from '../utils/paths';
 import Error from '../pages/Error';
 
 const Root = lazy(() => import('../pages/Root'));
@@ -18,6 +18,7 @@ function Index() {
           <Route path={MOVIES} element={<Movies />}>
             <Route path={MOVIE} element={<Movie />} />
           </Route>
+          <Route path={SEARCH} element={<Movie />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>
