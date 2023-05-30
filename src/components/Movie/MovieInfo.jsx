@@ -53,7 +53,7 @@ function MovieInfo() {
     );
   };
 
-  const filterMoviesByGenre = () => {
+  const recommendMoviesByGenre = () => {
     const genre = () => {
       if (genres.length < 1) {
         return genres;
@@ -62,13 +62,14 @@ function MovieInfo() {
         genres[Math.floor(Math.random() * genres.length)];
       return getRandomGenreByMovie;
     };
+
     if (allMovies) {
-      const movies = allMovies
+      const recommendedMovies = allMovies
         .filter((movie) => movie.genres.includes(genre()))
         .slice(0, 6);
 
-      return movies.map((movie) => (
-        <Link to={`/movie/${movie.id}`} key={movie.id}>
+      return recommendedMovies.map((movie) => (
+        <Link to={`/movies/movie/${movie.id}`} key={movie.id}>
           <img src={movie.img} alt={`front banner of ${movie.name}`} />
         </Link>
       ));
@@ -106,7 +107,7 @@ function MovieInfo() {
       </div>
       <aside className="recommendation">
         <h2>Filmes relacionados</h2>
-        <div className="recommended">{filterMoviesByGenre()}</div>
+        <div className="recommended">{recommendMoviesByGenre()}</div>
       </aside>
     </main>
   );
