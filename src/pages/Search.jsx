@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../components/Header/Header';
+import SearchPage from '../components/SearchedContent/SearchPage';
 
 function Search() {
   return (
     <>
       <Header />
+      <SearchPage />
     </>
   );
 }
