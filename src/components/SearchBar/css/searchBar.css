@@ -1,52 +1,52 @@
 :root {
   --bg-color: #141414;
-  --bg-color-secondary: #222222;
-  --text-color: #ffffff;
+  --bg-color-secondary: #222;
+  --text-color: #fff;
   --text-color-2: #e5e5e5;
   --text-color-secondary: #b4b4b4;
   --text-color-hover: #808080;
   --color-primary: #8209d1;
-  --color-secondary: #ffffff;
+  --color-secondary: #fff;
   --color-secondary-2: #c3c2b1;
+
   color-scheme: light dark;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .search_wrapper {
+  background-color: var(--bg-color-secondary);
+  border-radius: 7px;
   display: flex;
   justify-content: space-between;
   justify-content: center;
   width: 20%;
-  background-color: var(--bg-color-secondary);
-  border-radius: 7px 7px 7px 7px;
 }
+
 .search_wrapper input {
-  padding: 12px;
+  background: none;
+  border: none;
+  border-radius: 7px;
   flex-grow: 1;
-  border-radius: 7px 7px 7px 7px;
-  background: none;
-  outline: none;
-  border: none;
   font-size: 1em;
+  outline: none;
+  padding: 12px;
 }
-.search_wrapper input::-moz-placeholder {
-  font-weight: 500;
-  color: var(--text-color-secondary);
-}
+
 .search_wrapper input::placeholder {
-  font-weight: 500;
   color: var(--text-color-secondary);
+  font-weight: 500;
 }
+
 .search_wrapper button {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  border: none;
   background: none;
-  cursor: pointer;
-  font-size: 1.5em;
-  padding: 0 7px;
   background-color: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5em;
+  justify-content: center;
+  padding: 0 7px;
 }
 
 #open {
@@ -54,29 +54,31 @@
 }
 
 #suspense {
+  background-color: var(--bg-color-secondary);
+  border-radius: 7px;
   display: flex;
   justify-content: space-between;
   width: 0%;
-  background-color: var(--bg-color-secondary);
-  border-radius: 7px 7px 7px 7px;
 }
+
 #suspense button {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  border: none;
   background: none;
-  cursor: pointer;
-  font-size: 1.5em;
-  padding: 0 7px;
   background-color: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5em;
+  justify-content: center;
+  padding: 0 7px;
 }
 
 @keyframes openSearch {
   from {
     width: 0%;
   }
+
   to {
     width: 20%;
   }
-}/*# sourceMappingURL=searchBar.css.map */
+}
