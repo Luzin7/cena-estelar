@@ -8,6 +8,7 @@
     "airbnb-base",
     "plugin:prettier/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -15,7 +16,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["@typescript-eslint", "react", "prettier"],
   "settings": {
     "import/resolver": {
       "node": {
