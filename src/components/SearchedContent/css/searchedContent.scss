@@ -1,0 +1,41 @@
+@import "../../../styles/variables";
+@import "../../../styles/functions";
+.searched_content_wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  opacity: 1;
+}
+
+.item_searched {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  width: auto;
+  margin: 1em 0.7em;
+
+  & img {
+    width: 12vw;
+    height: 100%;
+    border-radius: 1em;
+    border: 2px solid rgba(0, 0, 0, 0);
+    transition: all 0.2s;
+
+    &:hover {
+      border: 2px solid getColor(color-primary);
+      transform: scale(1.1);
+    }
+  }
+}
+
+#show {
+  animation: show 0.2s ease-in-out;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
