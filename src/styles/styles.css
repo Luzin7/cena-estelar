@@ -76,6 +76,7 @@ button:hover {
   max-width: 98%;
   margin: auto;
   margin-left: 2vw;
+  min-height: 100vh;
 }
 
 .categoriesSection {
