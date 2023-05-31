@@ -1,0 +1,9 @@
+export const ROOT: string = '/';
+export const HOME: string = '/home';
+export const SEARCH: string = '/search';
+export const MOVIES: string = '/movies';
+export const SERIES: string = '/series';
+export const ANIMES: string = '/animes';
+export const MOVIE: string = 'movie/:id';
+export const SERIE: string = '/serie/:id';
+export const ANIME: string = '/anime/:id';
