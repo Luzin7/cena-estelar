@@ -15,7 +15,7 @@ function Content() {
           essa diversidade e explore nossa forma de entretenimento!
         </p>
         <Link to={HOME}>
-          <button type="button">Ver conteúdo</button>
+          <button type="button">Conferir conteúdo</button>
         </Link>
       </section>
       <section className="root_sectionAbout">
