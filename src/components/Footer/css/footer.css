@@ -1,0 +1,39 @@
+:root {
+  --bg-color: #141414;
+  --bg-color-secondary: #222222;
+  --text-color: #ffffff;
+  --text-color-2: #e5e5e5;
+  --text-color-secondary: #b4b4b4;
+  --text-color-hover: #808080;
+  --color-primary: #8209d1;
+  --color-secondary: #ffffff;
+  --color-secondary-2: #c3c2b1;
+  color-scheme: light dark;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+footer {
+  height: 20vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  gap: 24px;
+}
+
+li {
+  font-size: 1.7em;
+  list-style-type: none;
+}
+
+span {
+  color: var(--text-color-secondary);
+}
+span a {
+  color: var(--text-color-secondary);
+  text-decoration: underline;
+}/*# sourceMappingURL=footer.css.map */
