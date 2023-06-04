@@ -99,6 +99,7 @@
 .content .content_review .review_title__wrap {
   margin-bottom: 2em;
   text-align: center;
+  color: var(--text-color);
 }
 .content .content_review .review_title__wrap h2 {
   font-size: 2.5em;
