@@ -32,6 +32,9 @@
   line-height: 1.7rem;
 }
 
+.root_sectionHeader {
+  color: var(--text-color);
+}
 .root_sectionHeader h2 {
   margin-bottom: 0.7rem;
 }
@@ -44,6 +47,7 @@
 }
 
 .root_sectionAbout .about_title {
+  color: var(--text-color);
   margin-bottom: 0.7rem;
 }
 
@@ -61,6 +65,10 @@
     flex-flow: row wrap;
     text-align: center;
   }
+  .root_sectionHeader,
+  .root_sectionAbout {
+    color: var(--text-color);
+  }
   .root_sectionHeader h2,
   .root_sectionAbout h2 {
     font-size: 1.5rem;
@@ -75,6 +83,7 @@
   }
   .root_sectionHeader {
     margin-bottom: 2.5rem;
+    color: var(--text-color);
   }
   .root_sectionHeader h2 {
     margin-bottom: 1rem;
@@ -89,6 +98,7 @@
   }
   .root_sectionAbout .about_title {
     margin-bottom: 1.5rem;
+    color: var(--text-color);
   }
   .root_sectionAbout .about_title small {
     font-size: 0.7em;
