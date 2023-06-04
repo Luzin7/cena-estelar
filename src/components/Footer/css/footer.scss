@@ -1,0 +1,26 @@
+@import "../../../styles/_functions.scss";
+
+footer {
+  height: 20vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  gap: 24px;
+}
+li {
+  font-size: 1.7em;
+  list-style-type: none;
+}
+
+span {
+  & a {
+    color: getColor(text-color-secondary);
+    text-decoration: underline;
+  }
+  color: getColor(text-color-secondary);
+}
