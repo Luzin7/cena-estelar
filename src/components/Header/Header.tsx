@@ -1,5 +1,7 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { BsStars } from 'react-icons/bs';
+import { BiMenu } from 'react-icons/bi';
+import { IoCloseOutline } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
 import { HOME, MOVIES, ROOT } from '../../utils/paths';
 import './css/header.css';
@@ -8,6 +10,7 @@ import SearchBar from '../SearchBar/SearchBar';
 function Header() {
   const [isHomePage, setIsHomePage] = useState<boolean>(false);
   const [isMoviesPage, setIsMoviesPage] = useState<boolean>(false);
+  const [isAriaActive, setIsAriaActive] = useState<boolean>(false);
   const { pathname } = useLocation();
 
   useLayoutEffect(() => {
@@ -24,6 +27,10 @@ function Header() {
     }
   }, [pathname]);
 
+  const handleMobileMenu = () => {
+    setIsAriaActive(!isAriaActive);
+  };
+
   return (
     <header className="header">
       <Link to={ROOT}>
@@ -32,8 +39,18 @@ function Header() {
           <BsStars id="logo_icon" />
         </div>
       </Link>
-
-      <nav className="header_nav">
+      <button
+        id="btn_menu__mobile"
+        aria-expanded={isAriaActive}
+        onClick={() => handleMobileMenu()}
+      >
+        {isAriaActive ? (
+          <IoCloseOutline id="menu_icon" />
+        ) : (
+          <BiMenu id="menu_icon" />
+        )}
+      </button>
+      <nav className="header_nav" id={isAriaActive ? 'mobile_active' : ''}>
         <ul className="nav_list">
           <Link to={HOME}>
             <li id={isHomePage ? 'active' : ''} className="list__item home">
@@ -44,9 +61,6 @@ function Header() {
             <li id={isMoviesPage ? 'active' : ''} className="list__item movies">
               Filmes
             </li>
-          </Link>
-          <Link to={'/'}>
-            <li className="list__item">Gêneros</li>
           </Link>
         </ul>
       </nav>
