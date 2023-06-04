@@ -24,6 +24,7 @@
 }
 
 .root_sectionHeader {
+  color: getColor(text-color);
   & h2 {
     margin-bottom: 0.7rem;
   }
@@ -39,6 +40,7 @@
 
 .root_sectionAbout {
   & .about_title {
+    color: getColor(text-color);
     margin-bottom: 0.7rem;
   }
 }
@@ -62,6 +64,7 @@
 
   .root_sectionHeader,
   .root_sectionAbout {
+    color: getColor(text-color);
     & h2 {
       font-size: 1.5rem;
     }
@@ -77,6 +80,7 @@
 
   .root_sectionHeader {
     margin-bottom: 2.5rem;
+    color: getColor(text-color);
     & h2 {
       margin-bottom: 1rem;
     }
@@ -94,6 +98,7 @@
   .root_sectionAbout {
     & .about_title {
       margin-bottom: 1.5rem;
+      color: getColor(text-color);
 
       & small {
         font-size: 0.7em;
