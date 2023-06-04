@@ -60,9 +60,7 @@ function SearchedContent() {
           />
         </>
       ) : (
-        <>
-          <h1>eitacarai</h1>
-        </>
+        <>Digite algo e eu irei procurar!</>
       )}
     </main>
   );
