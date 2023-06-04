@@ -22,13 +22,14 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: left;
-  width: auto;
   margin: 1em 0.7em;
 }
 .item_searched img {
   width: 12vw;
   height: 100%;
-  border-radius: 1em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.2em;
   border: 2px solid rgba(0, 0, 0, 0);
   transition: all 0.2s;
 }
@@ -47,5 +48,17 @@
   }
   to {
     opacity: 1;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .searched_content_wrapper {
+    justify-content: center;
+  }
+  .item_searched img {
+    width: 25vw;
+  }
+  .item_searched img:hover {
+    border: 2px solid var(--color-primary);
+    transform: scale(1);
   }
 }/*# sourceMappingURL=searchedContent.css.map */
