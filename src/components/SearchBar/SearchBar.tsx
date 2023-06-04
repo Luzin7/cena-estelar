@@ -31,6 +31,18 @@ function SearchBar() {
 
   return (
     <>
+      <form id="search_mobile" onSubmit={(e) => e.preventDefault()}>
+        <input
+          type="search"
+          id="input_search"
+          placeholder="Busque por um filme, série..."
+          value={userQuery}
+          onInput={({ target }) =>
+            setUserQuery((target as HTMLInputElement).value)
+          }
+          onBlur={() => closeSearch()}
+        />
+      </form>
       {searchIsActive ? (
         <form
           className="search_wrapper"
@@ -46,7 +58,9 @@ function SearchBar() {
             placeholder="Busque por um filme, série..."
             value={userQuery}
             autoFocus
-            onInput={({ target }) => setUserQuery((target as HTMLInputElement).value)}
+            onInput={({ target }) =>
+              setUserQuery((target as HTMLInputElement).value)
+            }
             onBlur={() => closeSearch()}
           />
         </form>
