@@ -1,11 +1,13 @@
-import ContentProp from "../interfaces/data/ContentInterface";
+import ContentProp from '../interfaces/data/ContentInterface';
 
 const bestRatings = (array: any) => {
   if (!array || array.length === 0) {
     return null;
   }
 
-  const content = [...array].sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+  const content = [...array].sort(
+    (a, b) => parseFloat(b.rating) - parseFloat(a.rating),
+  );
   return content;
 };
 
