@@ -1,14 +1,15 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { getContents, getWishlist } from '../services/getContent';
+import { createContext, useEffect, useState } from 'react';
+import {
+  getAllMovies,
+  getAllSeries,
+  getWishlist,
+} from '../services/getContent';
 import ProviderProp from '../interfaces/contexts/ContextsInterface';
-import ContentType from '../types/data/ContentType';
 import WishlistType from '../types/data/WishlistType';
-import ContentProp from '../interfaces/data/ContentInterface';
 import LoadContentsContextProps from '../interfaces/contexts/LoadContentInterface';
+import WatchedContentType from '../types/data/ContentType';
 
 export const ContentsContext = createContext<LoadContentsContextProps>({
-  contents: null,
-  setContents: () => {},
   allMovies: null,
   setAllMovies: () => {},
   allSeries: null,
@@ -18,38 +19,23 @@ export const ContentsContext = createContext<LoadContentsContextProps>({
 });
 
 export const ContentsProvider = ({ children }: ProviderProp) => {
-  const [contents, setContents] = useState<ContentType | null>(null);
-  const [allMovies, setAllMovies] = useState<ContentProp[] | null>(null);
-  const [allSeries, setAllSeries] = useState<ContentProp[] | null>(null);
+  const [allMovies, setAllMovies] = useState<WatchedContentType | null>(null);
+  const [allSeries, setAllSeries] = useState<WatchedContentType | null>(null);
 
   const [wishlist, setWishlist] = useState<WishlistType | null>(null);
 
   const loadContents = async () => {
-    const allContents = getContents();
+    const getMovies = getAllMovies();
+    const getSeries = getAllSeries();
     const allWishlist = getWishlist();
 
-    setContents(allContents);
+    setAllMovies(getMovies);
+    setAllSeries(getSeries);
     setWishlist(allWishlist);
-  };
-
-  const formatContents = () => {
-    if (contents) {
-      const { movies, series } = contents;
-      setAllMovies(movies);
-      setAllSeries(series);
-    }
-    if (!contents) {
-      const allContents = getContents();
-
-      const { movies, series } = allContents;
-      setAllMovies(movies);
-      setAllSeries(series);
-    }
   };
 
   const fetchContents = async () => {
     await loadContents();
-    formatContents();
   };
 
   useEffect(() => {
@@ -59,8 +45,6 @@ export const ContentsProvider = ({ children }: ProviderProp) => {
   return (
     <ContentsContext.Provider
       value={{
-        contents,
-        setContents,
         allMovies,
         setAllMovies,
         allSeries,
