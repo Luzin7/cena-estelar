@@ -1,12 +1,17 @@
-import VIEWED_CONTENT from '../data/watchedContent';
+import MOVIES from '../data/watchedMovies';
+import SERIES from '../data/watchedSeries';
 import WISHLIST from '../data/wishlist';
 
-const getContents = () => {
-  return VIEWED_CONTENT;
+const getAllMovies = () => {
+  return MOVIES;
+};
+
+const getAllSeries = () => {
+  return SERIES;
 };
 
 const getWishlist = () => {
   return WISHLIST;
 };
 
-export { getContents, getWishlist };
+export { getAllMovies, getAllSeries, getWishlist };
