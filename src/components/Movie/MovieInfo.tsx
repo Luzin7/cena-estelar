@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   TiStarOutline,
@@ -11,7 +11,7 @@ import './css/movieInfo.css';
 function MovieInfo() {
   const { allMovies } = useContext(ContentsContext);
   const { id } = useParams();
-  const movieInfo = allMovies?.find(
+  const movieInfo = allMovies?.movies?.find(
     (movie) => movie.id === parseInt(id ? id : 'no-found'),
   );
 
@@ -66,10 +66,11 @@ function MovieInfo() {
     };
 
     if (allMovies) {
-      const recommendedMovies = allMovies
-        .filter((movie) => movie.genres.includes(genre()))
+      const recommendedMovies = allMovies.movies
+        ?.filter((movie) => movie.genres.includes(genre()))
         .slice(0, 6);
-      return recommendedMovies.map((movie) => (
+
+      return recommendedMovies?.map((movie) => (
         <Link to={`/movies/movie/${movie.id}`} key={movie.id}>
           <img src={movie.img} alt={`front banner of ${movie.name}`} />
         </Link>
