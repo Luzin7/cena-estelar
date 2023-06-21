@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ContentsContext } from '../../contexts/LoadContents';
 import { SearchContext } from '../../contexts/Search';
@@ -37,11 +37,11 @@ function SearchedContent() {
   const { allMovies, allSeries } = useContext(ContentsContext);
   const { userQuery } = useContext(SearchContext);
 
-  const movieFiltered = allMovies?.filter((movie) =>
+  const movieFiltered = allMovies?.movies?.filter((movie) =>
     movie.name.toLowerCase().includes(userQuery.toLowerCase()),
   );
   const moviesFound = movieFiltered ?? [];
-  const seriesFiltered = allSeries?.filter((serie) =>
+  const seriesFiltered = allSeries?.movies?.filter((serie) =>
     serie.name.toLowerCase().includes(userQuery.toLowerCase()),
   );
   const seriesFound = seriesFiltered ?? [];
