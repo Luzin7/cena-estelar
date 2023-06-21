@@ -1,5 +1,3 @@
-import ContentProp from '../interfaces/data/ContentInterface';
-
 const bestRatings = (array: any) => {
   if (!array || array.length === 0) {
     return null;
