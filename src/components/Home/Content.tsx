@@ -14,15 +14,15 @@ function Content() {
     <main className="home mainContainer">
       <Carousel
         title="Filmes vistos recentemente"
-        contents={lastSeens(allMovies) || []}
+        contents={lastSeens(allMovies?.movies) || []}
       />
       <Carousel
         title="Filmes bem avaliados"
-        contents={bestRatings(allMovies) || []}
+        contents={bestRatings(allMovies?.movies) || []}
       />
       <Carousel
         title="Series vistas recentemente"
-        contents={lastSeens(allSeries) || []}
+        contents={lastSeens(allSeries?.series) || []}
       />
       <Carousel title="Em breve" contents={getWishlist(wishlist) || []} />
     </main>
