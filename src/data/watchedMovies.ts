@@ -459,6 +459,30 @@ const MOVIES: WatchedContentType = {
         'https://media.tenor.com/wiGkYFnDjbkAAAAC/shaun-of-the-dead-shaun-of-the-dead-gifs.gif',
       genres: ['suspense'],
     },
+    {
+      id: 40,
+      name: 'Homem-Aranha: Através do Aranhaverso',
+      description: 'Amar a animação desse filme é um evento canônico.',
+      longDescription: `Que animação, meus amigos! A masterização do filme não é uma das melhores (e fez falta) e não há muito o que falar sobre história... é o Homem Aranha. A forma que eles desenharam tudo é magnífica ao ponto de que se você pausar em qualquer momento do filme, facilmente vai virar um papel de parede e qualquer um acharia que é um filme totalmente 2D.`,
+      rating: '4.6',
+      img: 'https://br.web.img3.acsta.net/pictures/23/05/17/22/43/4869322.jpg',
+      media:
+        'https://media.tenor.com/Qlie5z0iKQgAAAAd/spiderverse-across-the-spiderverse.gif',
+      genres: ['animação', 'ação', 'aventura'],
+    },
+    {
+      id: 41,
+      name: 'Beau Tem Medo',
+      description: 'O filho ta de saco cheio.',
+      longDescription: `Um filme que, além de ter um ótimo trabalho de câmera, tem a tendência de manipular muito bem quem está o assistindo (e creio que isso defina quem vai gostar ou não). A atuação do nosso querido Joaquin Phoenix (vulgo segundo melhor coringa) é impecável, até porque só chamam o meu amigo para fazer papel de sofredor, triste, depressivo e tudo que há de pior, tal qual Rafael Portugal está para papel de pobre, garçon e tudo que envolva subúrbio.
+      O humor no filme é no limite do esquisito e perturbador, então posso dizer que é bem relativo para quem estiver assistindo.
+      É um filme que facilmente você gostaria de assistir novamente.`,
+      rating: '2.9',
+      img: 'https://m.media-amazon.com/images/M/MV5BYTNhNWRmMDctYzE4OS00MzczLWJkODgtNzYxZTQxM2Y1YmM3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg',
+      media:
+        'https://thumbs.gfycat.com/SpitefulGleefulAmericangoldfinch-size_restricted.gif',
+      genres: ['comédia', 'drama', 'terror'],
+    },
   ],
 };
 export default MOVIES;
