@@ -467,7 +467,7 @@ const MOVIES: WatchedContentType = {
       rating: '4.6',
       img: 'https://br.web.img3.acsta.net/pictures/23/05/17/22/43/4869322.jpg',
       media:
-        'https://media.tenor.com/Qlie5z0iKQgAAAAd/spiderverse-across-the-spiderverse.gif',
+        'https://media.tenor.com/e1LRlRsE2U4AAAAC/miles-morales-gwen-stacy.gif',
       genres: ['animação', 'ação', 'aventura'],
     },
     {
