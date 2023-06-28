@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import './css/searchBar.css';
 import { useNavigate } from 'react-router-dom';
-import { SearchContext } from '../../contexts/Search';
+import { SearchContext } from '../../hooks/contexts/Search';
 import { HOME, SEARCH } from '../../utils/paths';
 
 function SearchBar() {
