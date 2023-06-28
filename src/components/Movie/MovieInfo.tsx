@@ -5,7 +5,7 @@ import {
   TiStarHalfOutline,
   TiStarFullOutline,
 } from 'react-icons/ti';
-import { ContentsContext } from '../../contexts/LoadContents';
+import { ContentsContext } from '../../hooks/contexts/LoadContents';
 import './css/movieInfo.css';
 
 function MovieInfo() {
