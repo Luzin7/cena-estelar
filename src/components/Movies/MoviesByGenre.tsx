@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { ContentsContext } from '../../contexts/LoadContents';
+import { ContentsContext } from '../../hooks/contexts/LoadContents';
 import Carousel from '../Carousel/Carousel';
 import filterMoviesByGenre from '../../functions/filterByGenre';
 
