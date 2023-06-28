@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ContentsContext } from '../../contexts/LoadContents';
-import { SearchContext } from '../../contexts/Search';
+import { ContentsContext } from '../../hooks/contexts/LoadContents';
+import { SearchContext } from '../../hooks/contexts/Search';
 import './css/searchedContent.css';
 import FilteredSectionProp from '../../interfaces/SearchedContent/FilteredSectionInterface';
 
