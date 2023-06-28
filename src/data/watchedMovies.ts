@@ -8,7 +8,7 @@ const MOVIES: WatchedContentType = {
       description: 'Filme perfeito. Meu rato cozinheiro preferido.',
       longDescription: 'Não precisa de motivo pra estar no topo.',
       rating: '5',
-      img: 'https://upload.wikimedia.org/wikipedia/pt/8/82/Ratatouille_p%C3%B4ster.jpg',
+      img: 'https://images.metahub.space/poster/small/tt0382932/img',
       media: 'https://c.tenor.com/-uhzi1JSmcYAAAAd/ana.gif',
       genres: ['animação', 'comédia'],
     },
