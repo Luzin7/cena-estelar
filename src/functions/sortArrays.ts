@@ -3,9 +3,7 @@ const bestRatings = (array: any) => {
     return null;
   }
 
-  const content = [...array].sort(
-    (a, b) => parseFloat(b.rating) - parseFloat(a.rating),
-  );
+  const content = [...array].filter((movie) => movie.rating > 4);
   return content;
 };
 
