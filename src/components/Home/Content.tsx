@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import Carousel from '../Carousel/Carousel';
-import { ContentsContext } from '../../contexts/LoadContents';
+import { ContentsContext } from '../../hooks/contexts/LoadContents';
 import {
   bestRatings,
   lastSeens,
