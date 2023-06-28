@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
-import { getViewWidth } from '../../hooks/getViewWidth';
 import SectionProp from '../../interfaces/SearchedContent/FilteredSectionInterface';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import { useEffect, useState } from 'react';
 
 function Carousel({ title, contents }: SectionProp) {
-  const [windowWidth, setWindowWidth] = useState(getViewWidth());
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
