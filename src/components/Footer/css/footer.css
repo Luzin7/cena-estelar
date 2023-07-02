@@ -18,6 +18,7 @@ footer {
   flex-flow: column wrap;
   justify-content: space-evenly;
   align-items: center;
+  background: var(--bg-color-secondary);
 }
 
 ul {
