@@ -1,0 +1,23 @@
+/* stylelint-disable-next-line selector-id-pattern */
+#loading_wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  height: 70vh;
+  justify-content: center;
+}
+
+#loading {
+  animation: rotate 0.4s linear infinite;
+  font-size: 7vw;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
