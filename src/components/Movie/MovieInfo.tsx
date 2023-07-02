@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   TiStarOutline,
@@ -7,8 +7,10 @@ import {
 } from 'react-icons/ti';
 import { ContentsContext } from '../../hooks/contexts/LoadContents';
 import './css/movieInfo.css';
+import Loading from '../Loading';
 
 function MovieInfo() {
+  const [isLoading, setIsLoading] = useState(true);
   const { allMovies } = useContext(ContentsContext);
   const { id } = useParams();
   const movieInfo = allMovies?.movies?.find(
@@ -21,6 +23,19 @@ function MovieInfo() {
   const rating = movieInfo?.rating ?? '';
   const media = movieInfo?.media ?? '';
   const genres = movieInfo?.genres ?? [];
+
+  useEffect(() => {
+    setIsLoading(true);
+    const image = new Image();
+    image.src = media;
+    image.onload = () => {
+      setIsLoading(false);
+    };
+
+    return () => {
+      image.onload = null;
+    };
+  }, [media]);
 
   const showGenre = () => {
     if (genres.length === 1) {
@@ -82,35 +97,41 @@ function MovieInfo() {
 
   return (
     <main className="mainContainer content">
-      <div className="overview_container">
-        <section className="content_overview">
-          <div className="content_summary">
-            <div className="content_thumbnail">
-              <figure>
-                <img src={media} alt={name} />
-              </figure>
-              <figcaption>{name}</figcaption>
-              <div className="summary_side">
-                <div className="content_infos">{showGenre()}</div>
-                <div className="content_rating">{showRating()}</div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="overview_container">
+            <section className="content_overview">
+              <div className="content_summary">
+                <div className="content_thumbnail">
+                  <figure>
+                    <img src={media} alt={name} />
+                  </figure>
+                  <figcaption>{name}</figcaption>
+                  <div className="summary_side">
+                    <div className="content_infos">{showGenre()}</div>
+                    <div className="content_rating">{showRating()}</div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </section>
+            <section className="content_review">
+              <div className="review_title__wrap">
+                <h2>{name}</h2>
+                <small>
+                  <q>{description}</q>
+                </small>
+              </div>
+              <p>{longDescription}</p>
+            </section>
           </div>
-        </section>
-        <section className="content_review">
-          <div className="review_title__wrap">
-            <h2>{name}</h2>
-            <small>
-              <q>{description}</q>
-            </small>
-          </div>
-          <p>{longDescription}</p>
-        </section>
-      </div>
-      <aside className="recommendation">
-        <h2>Filmes relacionados</h2>
-        <div className="recommended">{recommendMoviesByGenre()}</div>
-      </aside>
+          <aside className="recommendation">
+            <h2>Filmes relacionados</h2>
+            <div className="recommended">{recommendMoviesByGenre()}</div>
+          </aside>
+        </>
+      )}
     </main>
   );
 }
