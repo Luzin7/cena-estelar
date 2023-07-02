@@ -25,7 +25,13 @@ function SearchBar() {
 
   return (
     <>
-      <form id="search_mobile" onSubmit={(e) => e.preventDefault()}>
+      <form
+        id="search_mobile"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSearch();
+        }}
+      >
         <input
           type="search"
           id="input_search"
