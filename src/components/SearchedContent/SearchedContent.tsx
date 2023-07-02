@@ -6,7 +6,7 @@ import './css/searchedContent.css';
 import FilteredSectionProp from '../../interfaces/SearchedContent/FilteredSectionInterface';
 
 function FilteredSection({ title, contents }: FilteredSectionProp) {
-  const { setUserQuery, setSearchIsActive } = useContext(SearchContext);
+  const { setUserQuery } = useContext(SearchContext);
   return (
     <section className="categoriesSection">
       <h2 className="section_title">{title}</h2>
@@ -20,7 +20,6 @@ function FilteredSection({ title, contents }: FilteredSectionProp) {
                 to={`/movies/movie/${id}`}
                 onClick={() => {
                   setUserQuery('');
-                  setSearchIsActive(false);
                 }}
               >
                 <img src={img} alt={`front banner of ${name}`} />
