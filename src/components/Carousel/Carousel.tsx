@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation } from 'swiper';
-import { GrPrevious } from 'react-icons/gr';
 import SectionProp from '../../interfaces/SearchedContent/FilteredSectionInterface';
 import 'swiper/css';
 import 'swiper/css/free-mode';
