@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from 'swiper';
+import { FreeMode, Navigation } from 'swiper';
+import { GrPrevious } from 'react-icons/gr';
 import SectionProp from '../../interfaces/SearchedContent/FilteredSectionInterface';
 import 'swiper/css';
 import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
 import { useEffect, useState } from 'react';
 
 function Carousel({ title, contents }: SectionProp) {
@@ -50,7 +52,11 @@ function Carousel({ title, contents }: SectionProp) {
         slidesPerView={responsiveSlideView(windowWidth)}
         grabCursor={true}
         freeMode={true}
-        modules={[FreeMode]}
+        modules={[FreeMode, Navigation]}
+        navigation={{
+          prevEl: '.prev-button',
+          nextEl: '.next-button',
+        }}
       >
         {contents.map(({ id, name, img }) => (
           <SwiperSlide className="item_carousel" key={id}>
@@ -63,6 +69,8 @@ function Carousel({ title, contents }: SectionProp) {
             )}
           </SwiperSlide>
         ))}
+        <div className="swiper-button-prev prev-button"></div>
+        <div className="swiper-button-next next-button"></div>
       </Swiper>
     </section>
   );
