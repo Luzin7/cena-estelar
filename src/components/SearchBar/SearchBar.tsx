@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { FormEvent, useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import './css/searchBar.css';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,11 @@ import { HOME, SEARCH } from '../../utils/paths';
 function SearchBar() {
   const { userQuery, setUserQuery } = useContext(SearchContext);
   const navigate = useNavigate();
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    handleSearch();
+  };
 
   const handleSearch = () => {
     if (userQuery !== '') {
@@ -25,13 +30,7 @@ function SearchBar() {
 
   return (
     <>
-      <form
-        id="search_mobile"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSearch();
-        }}
-      >
+      <form id="search_mobile" onSubmit={(e) => handleSubmit(e)}>
         <input
           type="search"
           id="input_search"
@@ -43,13 +42,7 @@ function SearchBar() {
           onBlur={() => closeSearch()}
         />
       </form>
-      <form
-        className="search_wrapper"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSearch();
-        }}
-      >
+      <form className="search_wrapper" onSubmit={(e) => handleSubmit(e)}>
         <button>
           <BsSearch onClick={() => handleSearch()} />
         </button>
