@@ -33,12 +33,6 @@ function Header() {
 
   return (
     <header className="header">
-      <Link to={ROOT}>
-        <div className="header_logo">
-          <h1>Cena Estelar</h1>
-          <BsStars id="logo_icon" />
-        </div>
-      </Link>
       <button
         id="btn_menu__mobile"
         aria-expanded={isAriaActive}
@@ -51,6 +45,12 @@ function Header() {
         )}
       </button>
       <nav className="header_nav" id={isAriaActive ? 'mobile_active' : ''}>
+        <Link to={HOME}>
+          <div className="header_logo">
+            <h1>Cena Estelar</h1>
+            <BsStars id="logo_icon" />
+          </div>
+        </Link>
         <ul className="nav_list">
           <Link to={HOME}>
             <li id={isHomePage ? 'active' : ''} className="list__item home">
