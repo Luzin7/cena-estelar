@@ -6,6 +6,7 @@ footer {
   flex-flow: column wrap;
   justify-content: space-evenly;
   align-items: center;
+  background: getColor(bg-color-secondary);
 }
 
 ul {

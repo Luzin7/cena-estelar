@@ -10,14 +10,21 @@
   flex-flow: row nowrap;
   place-items: center;
   justify-content: space-around;
+  padding: 0 8em;
   height: 10vh;
   background: getColor(bg-color);
+}
+
+.header_nav {
+  display: flex;
+  gap: 2em;
 }
 
 .header_logo {
   display: flex;
   place-items: center;
   gap: 0.4rem;
+  font-size: 1.2em;
 }
 
 #logo_icon {
@@ -44,6 +51,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .header {
+    padding: 0;
+  }
   .header_nav {
     position: fixed;
     display: flex;
