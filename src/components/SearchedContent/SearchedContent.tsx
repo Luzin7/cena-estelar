@@ -40,7 +40,7 @@ function SearchedContent() {
     movie.name.toLowerCase().includes(userQuery.toLowerCase()),
   );
   const moviesFound = movieFiltered ?? [];
-  const seriesFiltered = allSeries?.movies?.filter((serie) =>
+  const seriesFiltered = allSeries?.series?.filter((serie) =>
     serie.name.toLowerCase().includes(userQuery.toLowerCase()),
   );
   const seriesFound = seriesFiltered ?? [];

@@ -6,12 +6,15 @@ import {
   lastSeens,
   getWishlist,
 } from '../../functions/sortArrays';
+import FadeSwiper from '../Swiper';
+import filterMoviesByGenre from '../../functions/filterByGenre';
 
 function Content() {
   const { allMovies, wishlist, allSeries } = useContext(ContentsContext);
 
   return (
     <main className="home mainContainer">
+      <FadeSwiper contents={filterMoviesByGenre(allMovies?.movies, 'terror')} />
       <Carousel
         title="Filmes vistos recentemente"
         contents={lastSeens(allMovies?.movies) || []}

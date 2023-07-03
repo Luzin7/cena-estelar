@@ -7,5 +7,6 @@ interface ContentProp {
   img: string;
   media: string;
   genres: string[];
+  banner?: string;
 }
 export default ContentProp;

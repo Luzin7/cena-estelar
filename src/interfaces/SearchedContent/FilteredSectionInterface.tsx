@@ -1,7 +1,7 @@
 import ContentProp from '../data/ContentInterface';
 
 interface SectionProp {
-  title: string;
+  title?: string;
   contents: ContentProp[];
 }
 
