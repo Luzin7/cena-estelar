@@ -22,7 +22,9 @@ function Content() {
 
   return (
     <main className="home mainContainer">
-      <FadeSwiper contents={filterMoviesByGenre(allMovies?.movies, 'terror')} />
+      <FadeSwiper
+        contents={filterMoviesByGenre(allMovies?.movies, randomCategory())}
+      />
       <Carousel
         title="Filmes vistos recentemente"
         contents={lastSeens(allMovies?.movies) || []}
