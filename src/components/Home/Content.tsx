@@ -12,6 +12,8 @@ import filterMoviesByGenre from '../../functions/filterByGenre';
 function Content() {
   const { allMovies, wishlist, allSeries } = useContext(ContentsContext);
 
+  const randomCategory = () => {};
+
   return (
     <main className="home mainContainer">
       <FadeSwiper contents={filterMoviesByGenre(allMovies?.movies, 'terror')} />
