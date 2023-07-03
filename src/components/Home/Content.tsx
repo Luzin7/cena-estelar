@@ -12,7 +12,13 @@ import filterMoviesByGenre from '../../functions/filterByGenre';
 function Content() {
   const { allMovies, wishlist, allSeries } = useContext(ContentsContext);
 
-  const randomCategory = () => {};
+  // melhora e componentiza essa funcao
+  const randomCategory = () => {
+    const category = ['animação', 'terror', 'drama', 'comédia', 'suspense'];
+
+    const randomCategory = Math.floor(Math.random() * category.length);
+    return category[randomCategory];
+  };
 
   return (
     <main className="home mainContainer">
