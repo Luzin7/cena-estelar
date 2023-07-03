@@ -37,8 +37,6 @@ const MOVIES: WatchedContentType = {
       img: 'https://upload.wikimedia.org/wikipedia/pt/3/34/Outros_2001.jpg',
       media: 'https://c.tenor.com/vslHOwHvncsAAAAC/the-others-ghost.gif',
       genres: ['suspense'],
-      banner:
-        'https://media.fstatic.com/IwiNuTHWDMIGrjkgUhfCQ9302Xs=/600x250/smart/filters:format(webp)/media/articles/main/2020/08/13/658141ef-7d95-4697-958e-dd2f3c31903f-3671798643.jpg',
     },
     {
       id: 4,
@@ -50,8 +48,6 @@ const MOVIES: WatchedContentType = {
       img: 'https://br.web.img2.acsta.net/medias/nmedia/18/87/10/28/19872037.jpg',
       media: 'https://media1.giphy.com/media/c62qQQtiKPdv2/giphy.gif',
       genres: ['terror', 'suspense'],
-      banner:
-        'https://cinemacao.com/wp-content/uploads/2017/09/91k-4GWIAL._RI_-1130x590.jpg',
     },
     {
       id: 5,
@@ -64,8 +60,6 @@ const MOVIES: WatchedContentType = {
       img: 'https://br.web.img3.acsta.net/pictures/17/08/25/11/58/463146.jpg',
       media: 'https://giffiles.alphacoders.com/207/207124.gif',
       genres: ['suspense', 'ficção científica'],
-      banner:
-        'https://www.thebanner.org/sites/default/files/styles/article_detail_header/public/TIN-650%20Blade%20Runner_large_all.jpg?itok=I9PtFGEJ',
     },
     {
       id: 6,
@@ -320,6 +314,7 @@ const MOVIES: WatchedContentType = {
       media:
         'https://akns-images.eonline.com/eol_images/Entire_Site/201668/rs_540x220-160708104707-tumblr_o8nwyzrcvW1tkodheo4_540.gif?fit=around%7C540:220&output-quality=90&crop=540:220;center,top',
       genres: ['comédia'],
+      banner: "https://fanboyplanet.s3.amazonaws.com/wp-content/uploads/the-nice-guys-banner.jpg"
     },
     {
       id: 26,
@@ -413,6 +408,7 @@ const MOVIES: WatchedContentType = {
       img: 'https://www.jornalismo.ufv.br/cinecom/wp-content/uploads/2022/12/Skinamarink-1-683x1024.jpg',
       media: 'https://pbs.twimg.com/media/Fbby4qNXkAEFcNG.jpg',
       genres: ['horror', 'terror'],
+      banner: "https://i0.wp.com/newspack-washingtoncitypaper.s3.amazonaws.com/uploads/2023/01/Skinamarink_Still.jpg?fit=2048%2C858&ssl=1"
     },
     {
       id: 33,
@@ -520,6 +516,7 @@ const MOVIES: WatchedContentType = {
       media:
         'https://media.tenor.com/e1LRlRsE2U4AAAAC/miles-morales-gwen-stacy.gif',
       genres: ['animação', 'ação', 'aventura'],
+      banner:"https://weliveentertainment.com/wp-content/uploads/2023/05/across-spider-verse-banner-4.jpg"
     },
     {
       id: 41,
