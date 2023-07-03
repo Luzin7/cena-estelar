@@ -11,6 +11,7 @@ const MOVIES: WatchedContentType = {
       img: 'https://images.metahub.space/poster/small/tt0382932/img',
       media: 'https://c.tenor.com/-uhzi1JSmcYAAAAd/ana.gif',
       genres: ['animação', 'comédia'],
+      banner: `https://www.savethecat.com/wp-content/uploads/2015/03/aa2cc38091680637512f0a07f3a4c0339abd5150main.jpg`,
     },
     {
       id: 2,
@@ -23,6 +24,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://i.kinja-img.com/gawker-media/image/upload/hilfwluqdlfwlillkxsh.gif',
       genres: ['terror'],
+      banner:
+        'https://diariodorio.com/wp-content/uploads/2016/03/A-Bruxa-capa-1280x720.jpg',
     },
     {
       id: 3,
@@ -69,6 +72,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://i.pinimg.com/originals/08/e5/43/08e5436a88f376b1ad8e007d05e0a8c1.gif',
       genres: ['comédia', 'drama'],
+      banner:
+        'https://chiefrabbi.org/wp-content/uploads/2020/02/jojo-rabbit-banner-2.jpg',
     },
     {
       id: 7,
@@ -93,6 +98,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://lh3.googleusercontent.com/n9Pmk-SuPfz89IbRjMr75jNPAxP3XU4y7kzeSg7lyNVKxM8dURZgqlOcjdEDjHHf3TK1iqHAjNl059QXQUvI-T9vWfxpEtBJb72_xKn7z0PKLmOHoqdHlIQxM1ytprwRsMvrCroN',
       genres: ['drama'],
+      banner:
+        'https://cinelounge.ch/movie-db/images/backdrops/489/3qkfrgpXNHdhB4sDGCpLxuS0JYP.jpg',
     },
     {
       id: 9,
@@ -105,6 +112,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://c.tenor.com/CZUY0PKVHfIAAAAd/dont-believe-his-lies-memento.gif',
       genres: ['drama', 'suspense'],
+      banner:
+        'https://images-na.ssl-images-amazon.com/images/S/pv-target-images/b27cd8d89ee4ec29089d32e1a309a7d80dadf3a9141b92a7d7fe671c3ff38158._UY500_UX667_RI_TTW_.jpg',
     },
     {
       id: 10,
@@ -129,6 +138,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://3.bp.blogspot.com/-NiOIYgjZSkI/WzZmt9iJf7I/AAAAAAAAQAs/LdhknhXjZFMU4t4amHw6Evv4tvFRTJ6HwCEwYBhgL/s1600/giphy%2B%25284%2529.gif',
       genres: ['drama', 'terror'],
+      banner:
+        'https://1.bp.blogspot.com/-R9rbeEKawhY/X2to91raVoI/AAAAAAAALVs/ZHQoxGq4SUgIqA-8hv2d_ElgvYv420qQgCLcBGAsYHQ/s1000/hereditary.png',
     },
     {
       id: 12,
@@ -223,6 +234,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://blog.jovempan.com.br/paulacarvalho/wp-content/uploads/sites/14/2017/02/GIF.gif',
       genres: ['drama', 'comédia', 'cinebiografia'],
+      banner:
+        'https://assets.mubicdn.net/images/artworks/528282/images-original.png?1678878328',
     },
     {
       id: 20,
@@ -233,6 +246,8 @@ const MOVIES: WatchedContentType = {
       img: 'https://images-na.ssl-images-amazon.com/images/S/pv-target-images/4c737b04d1a97407837e3955258134cb494181dd20ccfbaf7b7acf8c081d1708._RI_V_TTW_.jpg',
       media: 'https://c.tenor.com/josaiwe4bSoAAAAM/jk-simmons-whiplash.gif',
       genres: ['drama'],
+      banner:
+        'https://www.cinemundo.com.br/wp-content/uploads/2015/01/Whiplash_010814_1170x457.jpg',
     },
     {
       id: 21,
@@ -245,6 +260,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://5efce21e120dc77e32455754.static-01.com/l/images/436a056ec5312c18e05a693d155b3e781e8d619c.gif',
       genres: ['drama'],
+      banner:
+        'https://multiversonoticias.com.br/wp-content/uploads/2022/07/Sociedade-dos-Poetas-Mortos.png',
     },
     {
       id: 22,
@@ -258,6 +275,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://i.pinimg.com/originals/1b/6b/77/1b6b77b2f18c8a78f9204c84e9849774.gif',
       genres: ['comédia', 'drama', 'romance'],
+      banner:
+        'https://static.todamateria.com.br/upload/te/mp/temposmodernos-cke.jpg',
     },
     {
       id: 23,
@@ -268,6 +287,7 @@ const MOVIES: WatchedContentType = {
       img: 'https://flxt.tmsimg.com/assets/p8609718_p_v12_ar.jpg',
       media: 'https://c.tenor.com/W_4orF8nm74AAAAC/drive-movie.gif',
       genres: ['drama', 'suspense', 'neo-noir', 'policial'],
+      banner: 'https://wallpaperaccess.com/full/4038652.jpg',
     },
     {
       id: 24,
@@ -303,6 +323,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://i.gifer.com/origin/ae/aed5788927bb207496886554ad4c1df7.gif',
       genres: ['drama', 'esportivo'],
+      banner:
+        'https://cdn.ome.lt/2yjfdlBwGKUvC_IU8z5ppaSITHA=/570x0/smart/uploads/conteudo/fotos/arremessando.png',
     },
     {
       id: 27,
@@ -348,6 +370,8 @@ const MOVIES: WatchedContentType = {
       img: 'https://upload.wikimedia.org/wikipedia/pt/8/87/Frida_%28filme%29.jpg',
       media: 'https://thumbs.gfycat.com/ContentDeadCoqui-size_restricted.gif',
       genres: ['drama', 'romântico', 'histórico', 'cinebiografia'],
+      banner:
+        'https://feitoporelas.com.br/wp-content/uploads/2019/02/Frida-002.jpg',
     },
     {
       id: 31,
@@ -361,6 +385,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://64.media.tumblr.com/3d6bb066494218c7ae10bc8dabd093f1/78f3394da96e0bd2-88/s540x810/ef6d6261b927dbb176e0fd4c6850d1cfb6d7d031.gifv',
       genres: ['drama'],
+      banner:
+        'https://cafecomnerd.com.br/wp-content/uploads/2022/11/Depois-do-Universo-Critica-drama-romantico-nacional-com-Giulia-Be-e-Henrique-Zaga-na-Netflix.jpg',
     },
     {
       id: 32,
@@ -398,6 +424,7 @@ const MOVIES: WatchedContentType = {
       media:
         'https://media.tenor.com/wZjDnzdB0e0AAAAC/the-whale-brendan-fraser.gif',
       genres: ['drama', 'drama psicológico'],
+      banner: 'https://laeleplus.com/upload/images/a-Baleia-banner.webp',
     },
     {
       id: 35,
@@ -422,6 +449,7 @@ const MOVIES: WatchedContentType = {
       img: 'https://upload.wikimedia.org/wikipedia/pt/a/a1/Perfect_Blue.jpg',
       media: 'https://media.tenor.com/zmiGNmB_6bMAAAAC/perfect-blue-anime.gif',
       genres: ['mistério', 'suspense', 'drama', 'animação'],
+      banner: 'https://i.redd.it/2jzhj6imip061.jpg',
     },
     {
       id: 37,
@@ -482,6 +510,8 @@ const MOVIES: WatchedContentType = {
       media:
         'https://thumbs.gfycat.com/SpitefulGleefulAmericangoldfinch-size_restricted.gif',
       genres: ['comédia', 'drama', 'terror'],
+      banner:
+        'https://cinepop.com.br/wp-content/uploads/2023/04/beauisafraidbanner.jpg',
     },
   ],
 };
