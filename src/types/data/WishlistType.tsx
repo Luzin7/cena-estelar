@@ -1,8 +1,8 @@
-import WishlistProp from "../../interfaces/data/WishlistInterface";
+import WishlistProp from '../../interfaces/data/WishlistInterface';
 
 type WishlistType = {
-  movies?: WishlistProp[],
-  series?: WishlistProp[],
+  movies?: WishlistProp[];
+  series?: WishlistProp[];
 };
 
 export default WishlistType;

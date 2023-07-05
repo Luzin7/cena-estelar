@@ -16,12 +16,14 @@ const lastSeens = (array: any) => {
   return content;
 };
 
-const getWishlist = (array: any) => {
+const getWishlist = async (array: any) => {
   if (!array || array.length === 0) {
     return null;
   }
 
-  const content = [...array.movies].sort((a, b) => b.id - a.id);
+  const asd = await array;
+
+  const content = [...asd].sort((a, b) => b - a);
   return content;
 };
 

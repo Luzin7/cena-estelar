@@ -1,0 +1,57 @@
+:root {
+  --bg-color: #141414;
+  --bg-color-secondary: #222222;
+  --text-color: #ffffff;
+  --text-color-2: #e5e5e5;
+  --text-color-secondary: #b4b4b4;
+  --text-color-hover: #808080;
+  --color-primary: #8209d1;
+  --color-secondary: #ffffff;
+  --color-secondary-2: #c3c2b1;
+  color-scheme: light dark;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.form {
+  height: 70vh;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+}
+.form .form_wrapper {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  gap: 1em;
+  padding: 2em;
+  box-shadow: 0 0 70px black;
+}
+.form .form_wrapper label {
+  font-weight: 500;
+  font-size: 1.4em;
+}
+.form .form_wrapper input {
+  padding: 12px;
+  flex-grow: 1;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  background-color: var(--bg-color-secondary);
+  font-size: 1em;
+}
+.form .form_wrapper input::-moz-placeholder {
+  color: var(--text-color-secondary);
+}
+.form .form_wrapper input::placeholder {
+  color: var(--text-color-secondary);
+}
+.form .form_wrapper button {
+  padding: 0.7rem 1.7rem;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 1.4em;
+  margin: 2em auto 0 auto;
+}/*# sourceMappingURL=recommendation.css.map */
