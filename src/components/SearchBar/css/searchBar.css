@@ -52,6 +52,9 @@
   padding: 0 7px;
   background-color: none;
 }
+.search_wrapper button:hover {
+  background: none;
+}
 
 #open {
   animation: openSearch 0.2s ease-in-out;
