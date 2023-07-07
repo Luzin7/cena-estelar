@@ -4,12 +4,10 @@ import { ContentsContext } from '../../hooks/contexts/LoadContents';
 import { bestRatings, lastSeens } from '../../functions/sortArrays';
 import FadeSwiper from '../Swiper';
 import filterMoviesByGenre from '../../functions/filterByGenre';
-import { BsTypeH1 } from 'react-icons/bs';
 import Loading from '../Loading';
 
 function Content() {
   const { allMovies, wishlist, allSeries } = useContext(ContentsContext);
-  console.log(wishlist);
 
   // melhora e componentiza essa funcao
   const randomCategory = () => {
