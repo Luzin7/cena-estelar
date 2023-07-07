@@ -29,7 +29,6 @@ export const ContentsProvider = ({ children }: ProviderProp) => {
     const getMovies = getAllMovies();
     const getSeries = getAllSeries();
     const allWishlist = await getWishlist();
-    console.log(allWishlist);
 
     setAllMovies(getMovies);
     setAllSeries(getSeries);
