@@ -1,6 +1,8 @@
 import { initializeApp } from 'firebase/app';
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 import { getFirestore } from 'firebase/firestore';
 import { getAnalytics } from 'firebase/analytics';
+import { getAuth } from 'firebase/auth';
 const firebaseConfig = {
   apiKey: 'AIzaSyCfERKXxWmHsf6PCYdUVeio4kizbMvlm8w',
   authDomain: 'cenaestelar.firebaseapp.com',
@@ -12,5 +14,10 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const appCheck = initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider('6LdYSQAnAAAAAHVP9_BI6PxW-hrwDbsZW0eeyrw4'),
+});
+
+export const auth = getAuth(app);
 export const db = getFirestore(app);
 const analytics = getAnalytics(app);
