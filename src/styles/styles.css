@@ -122,6 +122,9 @@ button:hover {
 .fade_swiper__item {
   margin-bottom: 7vh;
 }
+.fade_swiper__item a {
+  width: 100%;
+}
 .fade_swiper__item .slider_img {
   display: flex;
   justify-content: center;

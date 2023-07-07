@@ -128,6 +128,10 @@ button {
 
 .fade_swiper__item {
   margin-bottom: 7vh;
+
+  & a {
+    width: 100%;
+  }
   & .slider_img {
     display: flex;
     justify-content: center;
@@ -183,6 +187,7 @@ button {
 .swiper-button-prev:hover {
   opacity: 1;
 }
+
 #fullStar,
 #halfStar {
   color: getColor(color-primary);
