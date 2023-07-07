@@ -19,7 +19,6 @@ const getWishlist = async (): Promise<WishlistProp[]> => {
     const { name, img } = doc.data();
     return { id: doc.id, name, img };
   });
-  console.log(wishlist);
   return wishlist;
 };
 
