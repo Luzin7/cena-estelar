@@ -203,13 +203,12 @@ button {
     & img {
       width: 120px;
       height: 200px;
-      object-fit: cover;
-      border: 2px solid rgba(0, 0, 0, 0);
-      border-radius: 0.2em;
-      transition: all 0.2s;
-      &:hover {
-        border: 2px solid getColor(color-primary);
-      }
+    }
+  }
+  .fade_swiper__item {
+    margin-bottom: 4vh;
+    & .slider_img {
+      height: 20vh;
     }
   }
 }
