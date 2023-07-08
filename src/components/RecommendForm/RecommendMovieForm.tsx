@@ -17,14 +17,21 @@ export function RecommendMovieForm() {
 
   const addContentToWishlist = async () => {
     const { name, img } = movieData;
-    const imgRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+    const imgLinkRegex = /\.(jpeg|jpg|png|webp)$/i;
+    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
 
     if (name === '' || img === '') {
       alert('Há campos vazios.');
       return;
     }
-    if (!imgRegex.test(img)) {
+    if (!urlRegex.test(img)) {
       alert('Insira um link válido.');
+      return;
+    }
+    if (!imgLinkRegex.test(img)) {
+      alert(
+        'Insira um link válido de uma imagem. Certifique de que sua imagem seja jpeg, jpg, png ou wepb.',
+      );
       return;
     }
 
