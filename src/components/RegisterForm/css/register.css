@@ -75,6 +75,9 @@
 .container button:active {
   transform: scale(0.8);
 }
+.container span {
+  text-align: center;
+}
 .container a {
   color: var(--color-primary);
   text-decoration: underline;
