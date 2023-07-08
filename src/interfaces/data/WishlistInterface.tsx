@@ -1,8 +1,7 @@
 interface WishlistProp {
-  id?: number;
+  id: string;
   name: string;
   img: string;
-  banner: string;
 }
 
 export default WishlistProp;

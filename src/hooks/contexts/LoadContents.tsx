@@ -8,6 +8,7 @@ import ProviderProp from '../../interfaces/contexts/ContextsInterface';
 import WishlistType from '../../types/data/WishlistType';
 import LoadContentsContextProps from '../../interfaces/contexts/LoadContentInterface';
 import WatchedContentType from '../../types/data/ContentType';
+import WishlistProp from '../../interfaces/data/WishlistInterface';
 
 export const ContentsContext = createContext<LoadContentsContextProps>({
   allMovies: null,
@@ -22,12 +23,12 @@ export const ContentsProvider = ({ children }: ProviderProp) => {
   const [allMovies, setAllMovies] = useState<WatchedContentType | null>(null);
   const [allSeries, setAllSeries] = useState<WatchedContentType | null>(null);
 
-  const [wishlist, setWishlist] = useState<WishlistType | null>(null);
+  const [wishlist, setWishlist] = useState<WishlistProp[] | null>(null);
 
   const loadContents = async () => {
     const getMovies = getAllMovies();
     const getSeries = getAllSeries();
-    const allWishlist = getWishlist();
+    const allWishlist = await getWishlist();
 
     setAllMovies(getMovies);
     setAllSeries(getSeries);

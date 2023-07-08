@@ -1,0 +1,87 @@
+:root {
+  --bg-color: #141414;
+  --bg-color-secondary: #222222;
+  --text-color: #ffffff;
+  --text-color-2: #e5e5e5;
+  --text-color-secondary: #b4b4b4;
+  --text-color-hover: #808080;
+  --color-primary: #8209d1;
+  --color-secondary: #ffffff;
+  --color-secondary-2: #c3c2b1;
+  color-scheme: light dark;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  color: var(--text-color);
+  height: 100vh;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container h3 {
+  margin-bottom: 1em;
+  font-size: 2em;
+  font-weight: 500;
+  text-align: center;
+}
+.container .form {
+  min-width: 350px;
+  border-radius: 7px;
+  margin: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  gap: 1em;
+  padding: 2em;
+  box-shadow: 0 0 50px black;
+}
+.container label {
+  font-weight: 500;
+  font-size: 1.4em;
+}
+.container input {
+  padding: 12px;
+  border-radius: 7px;
+  outline: none;
+  background-color: var(--bg-color-secondary);
+  font-size: 1em;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+.container input:focus {
+  border: 1px solid var(--color-primary);
+}
+.container input::-moz-placeholder {
+  color: var(--text-color-secondary);
+}
+.container input::placeholder {
+  color: var(--text-color-secondary);
+}
+.container button {
+  padding: 0.7rem 1.7rem;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 1.4em;
+  margin: 2em auto 0 auto;
+  transition: all 0.2s;
+}
+.container button:hover {
+  color: var(--color-primary);
+  background: var(--text-color);
+}
+.container button:active {
+  transform: scale(0.8);
+}
+.container span {
+  text-align: center;
+}
+.container a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.container a:hover {
+  color: var(--text-color-hover);
+}/*# sourceMappingURL=register.css.map */

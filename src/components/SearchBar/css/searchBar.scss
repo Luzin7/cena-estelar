@@ -37,6 +37,10 @@
     font-size: 1.5em;
     padding: 0 7px;
     background-color: none;
+
+    &:hover {
+      background: none;
+    }
   }
 }
 

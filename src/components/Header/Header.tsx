@@ -1,16 +1,18 @@
-import { useLayoutEffect, useState } from 'react';
+import { useContext, useLayoutEffect, useState } from 'react';
 import { BsStars } from 'react-icons/bs';
 import { BiMenu } from 'react-icons/bi';
 import { IoCloseOutline } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
-import { HOME, MOVIES, ROOT } from '../../utils/paths';
+import { HOME, LOGIN, MOVIES, RECOMMENDATION, ROOT } from '../../utils/paths';
 import './css/header.css';
 import SearchBar from '../SearchBar/SearchBar';
+import { UserDataContext } from '../../hooks/contexts/userData';
 
 function Header() {
   const [isHomePage, setIsHomePage] = useState<boolean>(false);
   const [isMoviesPage, setIsMoviesPage] = useState<boolean>(false);
   const [isAriaActive, setIsAriaActive] = useState<boolean>(false);
+  const { userData } = useContext(UserDataContext);
   const { pathname } = useLocation();
 
   useLayoutEffect(() => {
@@ -62,9 +64,23 @@ function Header() {
               Filmes
             </li>
           </Link>
+          <Link to={RECOMMENDATION}>
+            <li id={isMoviesPage ? 'active' : ''} className="list__item movies">
+              Recomendar
+            </li>
+          </Link>
         </ul>
       </nav>
       <SearchBar />
+
+      {userData?.photoURL && (
+        <img
+          className="user_icon"
+          src={userData.photoURL}
+          alt="User Image profile"
+          style={{ borderRadius: '100%', height: '50%' }}
+        />
+      )}
     </header>
   );
 }

@@ -1,0 +1,106 @@
+import { useContext, useState } from 'react';
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from 'firebase/auth';
+import { auth } from '../../services/firebase';
+import { UserDataContext } from '../../hooks/contexts/userData';
+import { Link } from 'react-router-dom';
+import './css/register.css';
+import AuthButtons from '../AuthButtons';
+export function RegisterForm() {
+  const [formInfo, setFormInfo] = useState({
+    email: '',
+    password: '',
+  });
+  const { setUserData } = useContext(UserDataContext);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const { email, password } = formInfo;
+
+  interface loginProp {
+    email: string;
+    password: string;
+  }
+
+  function registerAuth({ email, password }: loginProp) {
+    const emailRegex: RegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*\d)(?!.*\s)(?!.*([a-zA-Z])\1{3,})(?!.*\.{17,}).{6,16}$/;
+
+    setIsLoading(true);
+
+    if (!emailRegex.test(email) || !passwordRegex.test(password)) {
+      console.log('email ou senha errados');
+      setIsLoading(false);
+      return;
+    }
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const userData = userCredential.user;
+        setUserData(userData);
+        sendEmailVerification(userCredential.user);
+        setIsLoading(false);
+        alert('Falta pouco! Verifique seu email e confirme sua conta.');
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setIsLoading(false);
+      });
+  }
+
+  return (
+    <div className="container">
+      <div className="form_wrapper">
+        <form
+          className="form"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <h3>Crie sua conta</h3>
+
+          <label htmlFor="email">E-mail</label>
+          <input
+            value={email}
+            onChange={({ target }) =>
+              setFormInfo((prevFormInfo) => ({
+                ...prevFormInfo,
+                email: target.value,
+              }))
+            }
+            type="email"
+            name="email"
+            id="email"
+            required
+          />
+          <label htmlFor="password">Senha (mínimo de 6 caracteres)</label>
+          <input
+            value={password}
+            onChange={({ target }) =>
+              setFormInfo((prevFormInfo) => ({
+                ...prevFormInfo,
+                password: target.value,
+              }))
+            }
+            type="password"
+            name="password"
+            id="password"
+            required
+          />
+          <button
+            onClick={() => registerAuth({ email, password })}
+            disabled={isLoading ? true : false}
+          >
+            {isLoading ? 'Criando...' : 'Criar conta'}
+          </button>
+          <span>
+            Já tem uma conta? <Link to={'/login'}>Entre aqui.</Link>
+          </span>
+          <AuthButtons />
+        </form>
+      </div>
+    </div>
+  );
+}

@@ -76,6 +76,7 @@
     left: 0;
     top: 10vh;
     display: none;
+    z-index: 999;
   }
   #btn_menu__mobile {
     display: block;

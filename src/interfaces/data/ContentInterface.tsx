@@ -1,5 +1,5 @@
 interface ContentProp {
-  id: number;
+  id: number | string;
   name: string;
   description: string;
   longDescription: string;
