@@ -32,7 +32,7 @@ export function RegisterForm() {
 
     if (!emailRegex.test(email) || !passwordRegex.test(password)) {
       alert(
-        'Email ou senha não são válidos. Certifique de ter colocado um email válido ou uma senha que siga os padrões de seguranças: pelo menos uma letra maiúscula, um número e de, no mínimo, 6 caracteres.',
+        'Email ou senha não são válidos. Certifique de ter colocado um email válido ou uma senha que siga os padrões de seguranças: pelo menos uma letra maiúscula, um número e a senha deve ter, no mínimo, 6 caracteres.',
       );
       setIsLoading(false);
       return;
