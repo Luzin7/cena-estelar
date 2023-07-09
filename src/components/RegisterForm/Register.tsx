@@ -31,7 +31,7 @@ export function RegisterForm() {
     setIsLoading(true);
 
     if (!emailRegex.test(email) || !passwordRegex.test(password)) {
-      console.log('email ou senha errados');
+      alert('email ou senha errados');
       setIsLoading(false);
       return;
     }
