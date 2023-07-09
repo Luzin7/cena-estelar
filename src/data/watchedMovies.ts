@@ -559,6 +559,18 @@ const MOVIES: WatchedContentType = {
       banner:
         'https://cinepop.com.br/wp-content/uploads/2023/04/beauisafraidbanner.jpg',
     },
+    {
+      id: 42,
+      name: 'Tetsuo - O Homem de Ferro',
+      description:
+        'Se atropelar alguém, não tente esconder o corpo e faça sexo na frente dele. Ele pode ficar com raiva e querer se vingar.',
+      longDescription: `O diretor responsável por isso e o roteirista (existe um mundo em que sejam a mesma pessoa) estavam completamente alterados pelo abuso de drogas sintéticas. Criaram uma história que tinha até potencial, mas, chegando ali perto da metade pro final do filme, esqueceram do que estavam querendo falar. Como que vai levar a sério um filme que do nada adiciona um CARRO ALEGÓRIO sem contexto algum? A sensação chega a ser até frustrante. Talvez o filme não seja tão ruim, mas a nota média diz tudo.`,
+      rating: '2.75',
+      img: 'https://i.pinimg.com/originals/de/95/db/de95dbfc08698415b12c426e5d9c0165.jpg',
+      media: 'https://media.tenor.com/rilRhk5ZehYAAAAC/tetsuo-the.gif',
+      genres: ['live-action', 'cyberpunk', 'horror', 'body horror'],
+      banner: 'https://pbs.twimg.com/media/EhaziLOUMAIv0m-.jpg',
+    },
   ],
 };
 export default MOVIES;
