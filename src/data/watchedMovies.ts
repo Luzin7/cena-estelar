@@ -571,6 +571,34 @@ const MOVIES: WatchedContentType = {
       genres: ['live-action', 'cyberpunk', 'horror', 'body horror'],
       banner: 'https://pbs.twimg.com/media/EhaziLOUMAIv0m-.jpg',
     },
+    {
+      id: 43,
+      name: 'O Fantasma do Futuro',
+      description: 'Simplesmente a androide tem peitos humanos.',
+      longDescription: `O filme nos coloca em um mundo que a diferença entre ser humano e máquinas já não é tão simples assim de ser percebida. Como todo conteúdo japonês, eles gostam de adicionar frases filósoficas de formas duvidosas e exagerar nas fobias deles de máquinas e inteligências artificais, além de colocar personagens femininas o máximo possível sensualizadas.
+      É um bom filme que vai te deixar pensativo por algumas horas ou até dias (se isso acontecer procure um psicólogo). Não posso deixar de citar a MAC-10 com poder de uma paraFAL, isso é algo que me impressiona até agora.
+      `,
+      rating: '2.9',
+      img: 'https://cinepop.com.br/wp-content/uploads/2020/08/GITS-cinepop1.jpg',
+      media:
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXdiYWl3ZDU4Z3lwc3cxMnQzZmdkbndwMGppdGM5ZjFyYXlyMTJwayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/nlk3Y1u3r1n5C/giphy.gif',
+      genres: ['animação', 'ação', 'policial'],
+      banner:
+        'https://edmidentity.com/wp-content/uploads/2017/04/ghost-in-the-shell-banner.jpg',
+    },
+    {
+      id: 44,
+      name: 'Internet - O Filme',
+      description: 'Simplesmente jukebox fazendo a felicidade do brasileiro.',
+      longDescription: `Não tem muito o que dizer dessa obra. Eu me senti criminoso por tentar achar esse filme pois foi bastante dificultoso (não existe um local onde esse filme esteja disponível de forma normal). O roteiro claramente foi um idoso que travou em 1952 e acha que gente mais nova falam dessa forma que só velho pensa que os jovens falam e que odeia o cellbit.`,
+      rating: '1.8',
+      img: 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/7kyQPkPj6YDYzX4oMymtoiTzLx2.jpg',
+      media:
+        'https://m.media-amazon.com/images/M/MV5BZGJkMDhjNGUtY2JjZC00MDEzLTk1NDktYmQ2N2NjY2Y3MzdhXkEyXkFqcGdeQXVyMTAxMzk4OTU2._V1_.jpg',
+      genres: ['comédia'],
+      banner:
+        'https://casadeimagem.com/wp-content/uploads/2017/01/Internet_O_Filme_Blog_Casadeimagem.png',
+    },
   ],
 };
 export default MOVIES;
