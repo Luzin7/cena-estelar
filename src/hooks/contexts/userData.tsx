@@ -19,7 +19,6 @@ export const UserDataContext = createContext({} as UserData);
 export const UserDataProvider = ({ children }: ProviderProp) => {
   const [userData, setUserData] = useState<User | null>(null);
   const [userIsLogged, setUserIsLogged] = useState<boolean>(false);
-  console.log(userIsLogged);
 
   onAuthStateChanged(auth, (user) => {
     if (user?.emailVerified) {

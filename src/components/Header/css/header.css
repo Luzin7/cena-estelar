@@ -26,6 +26,35 @@
   background: var(--bg-color);
 }
 
+.user_icon {
+  cursor: pointer;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.abbc {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.dropdown_content {
+  background: var(--bg-color-secondary);
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  min-width: 150px;
+  top: 7vh;
+  z-index: 2;
+  padding: 0.75em;
+}
+
 .header_nav {
   display: flex;
   gap: 2em;

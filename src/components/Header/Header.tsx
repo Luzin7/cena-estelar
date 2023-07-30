@@ -1,17 +1,19 @@
 import { useContext, useLayoutEffect, useState } from 'react';
-import { BsStars } from 'react-icons/bs';
 import { BiMenu } from 'react-icons/bi';
+import { BsStars } from 'react-icons/bs';
 import { IoCloseOutline } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
-import { HOME, LOGIN, MOVIES, RECOMMENDATION, ROOT } from '../../utils/paths';
-import './css/header.css';
-import SearchBar from '../SearchBar/SearchBar';
 import { UserDataContext } from '../../hooks/contexts/userData';
+import { HOME, MOVIES } from '../../utils/paths';
+import DropDownProfile from '../DropdownProfile';
+import SearchBar from '../SearchBar/SearchBar';
+import './css/header.css';
 
 function Header() {
   const [isHomePage, setIsHomePage] = useState<boolean>(false);
   const [isMoviesPage, setIsMoviesPage] = useState<boolean>(false);
   const [isAriaActive, setIsAriaActive] = useState<boolean>(false);
+  const [isDropDownActive, setIsDropDownActive] = useState<boolean>(false);
   const { userData } = useContext(UserDataContext);
   const { pathname } = useLocation();
 
@@ -31,6 +33,7 @@ function Header() {
 
   const handleMobileMenu = () => {
     setIsAriaActive(!isAriaActive);
+    setIsDropDownActive(false);
   };
 
   return (
@@ -64,22 +67,27 @@ function Header() {
               Filmes
             </li>
           </Link>
-          <Link to={RECOMMENDATION}>
-            <li id={isMoviesPage ? 'active' : ''} className="list__item movies">
-              Recomendar
-            </li>
-          </Link>
         </ul>
       </nav>
       <SearchBar />
 
       {userData?.photoURL && (
-        <img
-          className="user_icon"
-          src={userData.photoURL}
-          alt="User Image profile"
-          style={{ borderRadius: '100%', height: '50%' }}
-        />
+        <div
+          className="abbc"
+          onClick={() => setIsDropDownActive(!isDropDownActive)}
+          onBlur={() => setIsDropDownActive(false)}
+        >
+          <img
+            className="user_icon"
+            src={userData.photoURL}
+            alt="User Image profile"
+          />
+          {isDropDownActive && (
+            <div className="dropdown_content">
+              <DropDownProfile />
+            </div>
+          )}
+        </div>
       )}
     </header>
   );

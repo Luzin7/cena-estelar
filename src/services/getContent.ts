@@ -1,7 +1,6 @@
 import { getDocs } from 'firebase/firestore';
 import MOVIES from '../data/watchedMovies';
 import SERIES from '../data/watchedSeries';
-import WISHLIST from '../data/wishlist';
 import { wishlistRepository } from './repository';
 import WishlistProp from '../interfaces/data/WishlistInterface';
 

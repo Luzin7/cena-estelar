@@ -62,7 +62,7 @@ function Carousel({ title, contents }: SectionProp) {
             {id === 0 ? (
               <img src={img} alt={`front banner of ${name}`} />
             ) : (
-              <Link to={`/movies/movie/${id}`}>
+              <Link to={`/movies/movie/${encodeURIComponent(name)}`}>
                 <img src={img} alt={`front banner of ${name}`} />
               </Link>
             )}

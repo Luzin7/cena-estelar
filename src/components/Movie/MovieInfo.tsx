@@ -13,9 +13,7 @@ function MovieInfo() {
   const [isLoading, setIsLoading] = useState(true);
   const { allMovies } = useContext(ContentsContext);
   const { id } = useParams();
-  const movieInfo = allMovies?.movies?.find(
-    (movie) => movie.id === parseInt(id ? id : 'no-found'),
-  );
+  const movieInfo = allMovies?.movies?.find((movie) => movie.name === id);
 
   const name = movieInfo?.name ?? '';
   const description = movieInfo?.description ?? '';
@@ -80,19 +78,31 @@ function MovieInfo() {
       return getRandomGenreByMovie;
     };
 
+    const selectedGenre = genre();
+
     if (allMovies) {
       const recommendedMovies = allMovies.movies
-        ?.filter((movie) => movie.genres.includes(genre()))
+        ?.filter((movie) => movie.genres.includes(selectedGenre))
+        .filter((movie) => movie.name !== name)
         .slice(0, 6);
 
-      return recommendedMovies?.map((movie) => (
-        <Link to={`/movies/movie/${movie.id}`} key={movie.id}>
-          <img src={movie.img} alt={`front banner of ${movie.name}`} />
-        </Link>
-      ));
+      if (recommendedMovies && recommendedMovies.length > 0) {
+        return recommendedMovies.map((movie) => (
+          <Link to={`/movies/movie/${movie.id}`} key={movie.id}>
+            <img src={movie.img} alt={`front banner of ${movie.name}`} />
+          </Link>
+        ));
+      } else {
+        return (
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+            delectus expedita rerum voluptas beatae alias dolorem tempore,
+            cumque natus saepe qui distinctio optio repellendus id. Nesciunt ex
+            aperiam in fugit.
+          </p>
+        );
+      }
     }
-
-    return null;
   };
 
   return (
@@ -127,7 +137,7 @@ function MovieInfo() {
             </section>
           </div>
           <aside className="recommendation">
-            <h2>Filmes relacionados</h2>
+            <h2>Veja também</h2>
             <div className="recommended">{recommendMoviesByGenre()}</div>
           </aside>
         </>
