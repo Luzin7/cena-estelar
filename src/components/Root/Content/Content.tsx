@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
-import { HOME } from '../../utils/paths';
-import './css/content.css';
+import { HOME } from '../../../utils/paths';
 
-function Content() {
+export function Content() {
   return (
-    <main className="root_main">
-      <section className="root_sectionHeader">
-        <h2>Transformando entretenimento em estudo.</h2>
-        <p>
+    <main className="flex flex-col flex-wrap justify-evenly items-center min-h-[90vh] md:justify-center lg:justify-evenly">
+      <section className="mb-7 text-center lg:mb-0 2xl:text-left">
+        <h2 className="text-4xl font-bold mb-2.5">
+          Transformando entretenimento em estudo.
+        </h2>
+        <p className="text-xl text-justify">
           Este projeto nasceu a partir das minhas experiências e opiniões, assim
           como das experiências dos meus amigos, sobre filmes, séries e todo
           tipo de conteúdo que assistimos juntos. Aqui você encontrará
@@ -15,12 +16,19 @@ function Content() {
           essa diversidade e explore nossa forma de entretenimento!
         </p>
         <Link to={HOME}>
-          <button type="button">Conferir conteúdo</button>
+          <button
+            type="button"
+            className="bg-colorPrimary py-2.5 px-7 text-colorSecondary font-bold mt-5 md:py-5 lg:py-4 "
+          >
+            Conferir conteúdo
+          </button>
         </Link>
       </section>
-      <section className="root_sectionAbout">
-        <div className="about_title">
-          <h2>Por que o projeto existe?</h2>
+      <section className="text-center 2xl:text-left">
+        <div className="mb-2.5">
+          <h2 className="text-4xl font-bold mb-2.5">
+            Por que o projeto existe?
+          </h2>
           <small>
             <q>
               Eu, como usuário não consigo interagir com o site, e isso me
@@ -30,7 +38,7 @@ function Content() {
             </q>
           </small>
         </div>
-        <p>
+        <p className="text-xl">
           Este projeto foi criado com o objetivo de tornar mais fácil a busca e
           o armazenamento de filmes, séries e outros conteúdos que eu assisto
           junto com meus amigos. Além de ser uma oportunidade para desenvolver
@@ -43,5 +51,3 @@ function Content() {
     </main>
   );
 }
-
-export default Content;

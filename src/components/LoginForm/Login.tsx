@@ -1,15 +1,15 @@
-import { useContext, useState } from 'react';
 import {
   browserLocalPersistence,
   setPersistence,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserDataContext } from '../../hooks/contexts/userData';
-import './css/login.css';
 import { auth } from '../../services/firebase';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { HOME } from '../../utils/paths';
 import AuthButtons from '../AuthButtons';
+import './css/login.css';
 export function LoginForm() {
   const [formInfo, setFormInfo] = useState({
     email: '',

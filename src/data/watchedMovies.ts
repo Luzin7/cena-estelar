@@ -599,6 +599,36 @@ const MOVIES: WatchedContentType = {
       banner:
         'https://casadeimagem.com/wp-content/uploads/2017/01/Internet_O_Filme_Blog_Casadeimagem.png',
     },
+    {
+      id: 45,
+      name: 'Barbie',
+      description: 'Simplesmente jukebox fazendo a felicidade do brasileiro.',
+      longDescription: `Houveram SAFADOS que apostavam que seria uma bomba, mas olha só, surpreendeu a galera e não ofendeu ninguém... exceto os extremistas políticos e as feministas que têm um probleminha com a boneca. Fazer o quê, né? Sempre tem os insatisfeitos de plantão (aprendi com nando moura)!
+      Simplesmente comemos hambúrguer com o líquido mágico do Ryan Gosling, foi mágico.
+      E falando no Gosling, o cara arrasou na atuação, tomou conta do filme da Barbie como se fosse a coisa mais natural do mundo. Genial da bola, sem dúvida! Acho que ele poderia até fazer um spin-off, o "Ken Gosling", que eu assistiria com gosto!`,
+      rating: '4',
+      img: 'https://s2.glbimg.com/FmNhe17El_Iab8n7qo203-cBDGw=/0x0:480x600/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_5dfbcf92c1a84b20a5da5024d398ff2f/internal_photos/bs/2023/x/C/jqAddPQOijfNlCNKNEFg/339277575-166477655924790-1364217602656200753-n.jpeg',
+      media: 'https://media.tenor.com/gNRysP_hvwQAAAAC/barbie-movie-waving.gif',
+      genres: ['comédia'],
+      banner:
+        'https://knightedgemedia.com/wp-content/uploads/2022/12/barbie-movie-teaser-banner1.jpg',
+    },
+    {
+      id: 46,
+      name: 'O Flash',
+      description: 'Prometeu nada e entregou nada (com maestria).',
+      longDescription: `Criticaram o filme antes mesmo de assistir, mas, no geral, o filme entregou o que prometeu - e quem esperava mais, convenhamos, estava pedindo demais.
+      Agora, os efeitos especiais... Bom, vamos ser sinceros, não foram lá essas coisas, mas isso não estragou o enredo. Sabe como é, tem gente que só quer procurar defeitos e criticar, nem liga pra história em si.
+      A parte triste é que o Flash dos filmes parece ter perdido o GPS da inteligência. Esqueceram de pegar o Flash esperto dos quadrinhos e colocaram um sujeito bem desajeitado no lugar. Uma decisão bem esquisita, pra dizer o mínimo.
+      Mas preciso dar o crédito ao ator, ele conseguiu ser estranho de um jeito divertido. Atuou bem nesse papel maluco que deram pro Flash. Acho que era isso que eles queriam desde o início.`,
+      rating: '2.9',
+      img: 'https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2023/02/13/fo3remix0aat4f4-rl2ulqvkkwtx.jpg',
+      media:
+        'https://thumbs.gfycat.com/IllfatedCreamyIndianglassfish-size_restricted.gif',
+      genres: ['comédia'],
+      banner:
+        'https://legadodadc.com.br/wp-content/uploads/2023/05/banner-the-flash-legadodadc.webp',
+    },
   ],
 };
 export default MOVIES;
