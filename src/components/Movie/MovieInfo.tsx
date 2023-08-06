@@ -85,7 +85,7 @@ function MovieInfo() {
 
       if (recommendedMovies && recommendedMovies.length > 0) {
         return recommendedMovies.map((movie) => (
-          <Link to={`/movies/movie/${movie.id}`} key={movie.id}>
+          <Link to={`/movies/movie/${encodeURIComponent(name)}`} key={movie.id}>
             <img src={movie.img} alt={`front banner of ${movie.name}`} />
           </Link>
         ));
