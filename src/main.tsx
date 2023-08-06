@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ContentsProvider } from './contexts/LoadContents';
@@ -6,6 +7,7 @@ import { UserDataProvider } from './contexts/userData';
 import Index from './routes/index';
 import './styles/index.css';
 import './styles/styles.css';
+dotenv.config();
 
 ReactDOM.createRoot(document.getElementById('root') as Element).render(
   <React.StrictMode>
