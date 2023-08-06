@@ -1,5 +1,5 @@
-interface ContentProp {
-  id: number | string;
+interface ContentProps {
+  id: number;
   name: string;
   description: string;
   longDescription: string;
@@ -9,4 +9,4 @@ interface ContentProp {
   genres: string[];
   banner?: string;
 }
-export default ContentProp;
+export default ContentProps;

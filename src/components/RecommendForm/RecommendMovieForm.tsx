@@ -1,8 +1,8 @@
 import { addDoc } from 'firebase/firestore';
 import { useContext, useEffect, useState } from 'react';
+import { UserDataContext } from '../../contexts/userData';
 import { wishlistRepository } from '../../services/repository';
 import './css/recommendation.css';
-import { UserDataContext } from '../../hooks/contexts/userData';
 
 export function RecommendMovieForm() {
   const [movieData, setMovieData] = useState({

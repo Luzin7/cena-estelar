@@ -1,8 +1,9 @@
-import { useContext } from 'react';
+import { lazy, useContext } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { ContentsContext } from '../../hooks/contexts/LoadContents';
-import Carousel from '../Carousel/Carousel';
+import { ContentsContext } from '../../contexts/LoadContents';
 import filterMoviesByGenre from '../../functions/filterByGenre';
+
+const Carousel = lazy(() => import('../Carousel/Carousel'));
 
 function Content() {
   const { allMovies } = useContext(ContentsContext);
@@ -15,24 +16,32 @@ function Content() {
       ) : (
         <>
           <Carousel
-            title="Filmes de comédia"
-            contents={filterMoviesByGenre(allMovies?.movies, 'comédia')}
+            title="Comédia"
+            movies={filterMoviesByGenre(allMovies, 'comédia') || []}
           />
           <Carousel
-            title="Filmes de drama"
-            contents={filterMoviesByGenre(allMovies?.movies, 'drama')}
+            title="Drama"
+            movies={filterMoviesByGenre(allMovies, 'drama') || []}
           />
           <Carousel
-            title="Filmes de suspense"
-            contents={filterMoviesByGenre(allMovies?.movies, 'suspense')}
+            title="Ação"
+            movies={filterMoviesByGenre(allMovies, 'ação') || []}
           />
           <Carousel
-            title="Filmes de terror"
-            contents={filterMoviesByGenre(allMovies?.movies, 'terror')}
+            title="Suspense"
+            movies={filterMoviesByGenre(allMovies, 'suspense') || []}
           />
           <Carousel
-            title="Filmes de animação"
-            contents={filterMoviesByGenre(allMovies?.movies, 'animação')}
+            title="Terror"
+            movies={filterMoviesByGenre(allMovies, 'terror') || []}
+          />
+          <Carousel
+            title="Animação"
+            movies={filterMoviesByGenre(allMovies, 'animação') || []}
+          />
+          <Carousel
+            title="Aventura"
+            movies={filterMoviesByGenre(allMovies, 'aventura') || []}
           />
         </>
       )}

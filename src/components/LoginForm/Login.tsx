@@ -5,7 +5,7 @@ import {
 } from 'firebase/auth';
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserDataContext } from '../../hooks/contexts/userData';
+import { UserDataContext } from '../../contexts/userData';
 import { auth } from '../../services/firebase';
 import { HOME } from '../../utils/paths';
 import AuthButtons from '../AuthButtons';
@@ -15,8 +15,7 @@ export function LoginForm() {
     email: '',
     password: '',
   });
-  const { setUserData, userIsLogged, setUserIsLogged } =
-    useContext(UserDataContext);
+  const { setUserData, setUserIsLogged } = useContext(UserDataContext);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
@@ -73,7 +72,6 @@ export function LoginForm() {
           }}
         >
           <h3>Acesse sua conta</h3>
-
           <label htmlFor="email">E-mail</label>
           <input
             value={email}

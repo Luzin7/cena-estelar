@@ -1,26 +1,28 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
 import {
-  TiStarOutline,
-  TiStarHalfOutline,
   TiStarFullOutline,
+  TiStarHalfOutline,
+  TiStarOutline,
 } from 'react-icons/ti';
-import { ContentsContext } from '../../hooks/contexts/LoadContents';
-import './css/movieInfo.css';
+import { Link, useParams } from 'react-router-dom';
+import { ContentsContext } from '../../contexts/LoadContents';
 import Loading from '../Loading';
+import './css/movieInfo.css';
 
 function MovieInfo() {
   const [isLoading, setIsLoading] = useState(true);
   const { allMovies } = useContext(ContentsContext);
   const { id } = useParams();
-  const movieInfo = allMovies?.movies?.find((movie) => movie.name === id);
+  const movieInfo = allMovies?.find((movie) => movie.name === id);
 
-  const name = movieInfo?.name ?? '';
-  const description = movieInfo?.description ?? '';
-  const longDescription = movieInfo?.longDescription ?? '';
-  const rating = movieInfo?.rating ?? '';
-  const media = movieInfo?.media ?? '';
-  const genres = movieInfo?.genres ?? [];
+  const {
+    name = '',
+    description = '',
+    longDescription = '',
+    rating = '',
+    media = '',
+    genres = [],
+  } = movieInfo || {};
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,31 +39,26 @@ function MovieInfo() {
 
   const showGenre = () => {
     if (genres.length === 1) {
-      return <span className="genres">Gênero: {genres}</span>;
-    }
-    if (genres.length > 1) {
-      const formattedGenres = `${genres
-        .slice(0, -1)
-        .join(', ')} e ${genres.slice(-1)}`;
+      return <span className="genres">Gênero: {genres[0]}</span>;
+    } else if (genres.length > 1) {
+      const formattedGenres =
+        genres.slice(0, -1).join(', ') + ' e ' + genres.slice(-1);
       return <span className="genres">Gêneros: {formattedGenres}</span>;
     }
-
     return null;
   };
 
   const showRating = () => {
     const contentRating = parseFloat(rating);
-    const stars = [];
-
-    for (let i = 1; i <= 5; i += 1) {
-      if (contentRating >= i) {
-        stars.push(<TiStarFullOutline key={i} id="fullStar" />);
-      } else if (contentRating + 0.5 >= i) {
-        stars.push(<TiStarHalfOutline key={i} id="halfStar" />);
+    const stars = Array.from({ length: 5 }, (_, index) => {
+      if (contentRating >= index + 1) {
+        return <TiStarFullOutline key={index} id="fullStar" />;
+      } else if (contentRating + 0.5 >= index + 1) {
+        return <TiStarHalfOutline key={index} id="halfStar" />;
       } else {
-        stars.push(<TiStarOutline key={i} id="emptyStar" />);
+        return <TiStarOutline key={index} id="emptyStar" />;
       }
-    }
+    });
 
     return (
       <div className="content_rating">
@@ -81,8 +78,8 @@ function MovieInfo() {
     const selectedGenre = genre();
 
     if (allMovies) {
-      const recommendedMovies = allMovies.movies
-        ?.filter((movie) => movie.genres.includes(selectedGenre))
+      const recommendedMovies = allMovies
+        .filter((movie) => movie.genres.includes(selectedGenre))
         .filter((movie) => movie.name !== name)
         .slice(0, 6);
 
@@ -95,10 +92,8 @@ function MovieInfo() {
       } else {
         return (
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            delectus expedita rerum voluptas beatae alias dolorem tempore,
-            cumque natus saepe qui distinctio optio repellendus id. Nesciunt ex
-            aperiam in fugit.
+            Parece que não foi encontrado nenhum filme baseado na categoria.
+            Pedimos desculpas por isso.
           </p>
         );
       }

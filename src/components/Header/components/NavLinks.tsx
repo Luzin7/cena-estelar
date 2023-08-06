@@ -1,7 +1,7 @@
 import { useContext, useLayoutEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { UserDataContext } from '../../hooks/contexts/userData';
-import { HOME, MOVIES, RECOMMENDATION } from '../../utils/paths';
+import { UserDataContext } from '../../../contexts/userData';
+import { HOME, MOVIES, RECOMMENDATION } from '../../../utils/paths';
 
 export function NavLinks() {
   const [isHomePage, setIsHomePage] = useState<boolean>(false);

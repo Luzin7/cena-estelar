@@ -1,7 +1,7 @@
-import { Navigate, Outlet } from 'react-router-dom';
-import { REGISTER } from '../utils/paths';
 import { useContext } from 'react';
-import { UserDataContext } from '../hooks/contexts/userData';
+import { Navigate, Outlet } from 'react-router-dom';
+import { UserDataContext } from '../contexts/userData';
+import { REGISTER } from '../utils/paths';
 
 export const PrivateRoutes = () => {
   const { userIsLogged } = useContext(UserDataContext);

@@ -1,13 +1,13 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation } from 'swiper';
-import SectionProp from '../../interfaces/SearchedContent/FilteredSectionInterface';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
-import { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import CarouselProps from '../../types/Swiper/ICarousel';
 
-function Carousel({ title, contents }: SectionProp) {
+function Carousel({ title, movies, series, wishList }: CarouselProps) {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
@@ -44,6 +44,30 @@ function Carousel({ title, contents }: SectionProp) {
     }
   };
 
+  const carouselContent = () => {
+    if (movies) {
+      return movies.map(({ id, name, img }) => (
+        <SwiperSlide className="item_carousel" key={id}>
+          <Link to={`/movies/movie/${encodeURIComponent(name)}`}>
+            <img src={img} alt={`front banner of ${name}`} loading="lazy" />
+          </Link>
+        </SwiperSlide>
+      ));
+    } else if (series) {
+      return series.map(({ id, name, img }) => (
+        <SwiperSlide className="item_carousel" key={id}>
+          <img src={img} alt={`front banner of ${name}`} loading="lazy" />
+        </SwiperSlide>
+      ));
+    } else if (wishList) {
+      return wishList.map(({ id, name, img }) => (
+        <SwiperSlide className="item_carousel" key={id}>
+          <img src={img} alt={`front banner of ${name}`} loading="lazy" />
+        </SwiperSlide>
+      ));
+    }
+  };
+
   return (
     <section className="categoriesSection">
       <h2 className="section_title">{title}</h2>
@@ -57,17 +81,7 @@ function Carousel({ title, contents }: SectionProp) {
           nextEl: '.next-button',
         }}
       >
-        {contents.map(({ id, name, img }) => (
-          <SwiperSlide className="item_carousel" key={id}>
-            {id === 0 ? (
-              <img src={img} alt={`front banner of ${name}`} />
-            ) : (
-              <Link to={`/movies/movie/${encodeURIComponent(name)}`}>
-                <img src={img} alt={`front banner of ${name}`} />
-              </Link>
-            )}
-          </SwiperSlide>
-        ))}
+        {carouselContent()}
         <div className="swiper-button-prev prev-button"></div>
         <div className="swiper-button-next next-button"></div>
       </Swiper>

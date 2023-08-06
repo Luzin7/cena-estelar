@@ -1,8 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
-import { getFirestore } from 'firebase/firestore';
-import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 const firebaseConfig = {
   apiKey: 'AIzaSyCfERKXxWmHsf6PCYdUVeio4kizbMvlm8w',
   authDomain: 'cenaestelar.firebaseapp.com',
@@ -20,4 +19,3 @@ const appCheck = initializeAppCheck(app, {
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-const analytics = getAnalytics(app);

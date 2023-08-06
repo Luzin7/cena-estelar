@@ -1,11 +1,9 @@
-import SearchedContent from './SearchedContent';
+import { SearchedContent } from './SearchedContent';
 
-function SearchPage() {
+export function SearchPage() {
   return (
     <>
       <SearchedContent />
     </>
   );
 }
-
-export default SearchPage;

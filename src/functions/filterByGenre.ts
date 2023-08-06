@@ -1,6 +1,8 @@
-const filterMoviesByGenre = (array: any, genre: string) => {
+import ContentProps from '../types/data/IContent';
+
+const filterMoviesByGenre = (array: ContentProps[], genre: string) => {
   if (array) {
-    const contentFiltered = array.filter((content: any) =>
+    const contentFiltered = array.filter((content: ContentProps) =>
       content.genres.includes(genre),
     );
 

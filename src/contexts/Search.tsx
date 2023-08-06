@@ -1,6 +1,6 @@
-import React, { createContext, useState } from 'react';
-import ProviderProp from '../../interfaces/contexts/ContextsInterface';
-import SearchContextProps from '../../interfaces/contexts/SearchContextInterface';
+import { createContext, useState } from 'react';
+import ProviderProp from '../types/contexts/IContexts';
+import SearchContextProps from '../types/contexts/ISearchContext';
 
 export const SearchContext = createContext<SearchContextProps>({
   userQuery: '',

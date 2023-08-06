@@ -1,13 +1,9 @@
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useContext } from 'react';
-import {
-  GithubAuthProvider,
-  GoogleAuthProvider,
-  signInWithPopup,
-} from 'firebase/auth';
+import { BsGoogle } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
+import { UserDataContext } from '../../contexts/userData';
 import { auth } from '../../services/firebase';
-import { BsGoogle, BsGithub } from 'react-icons/bs';
-import { UserDataContext } from '../../hooks/contexts/userData';
-import { Navigate, useNavigate } from 'react-router-dom';
 import { HOME } from '../../utils/paths';
 
 function AuthButtons() {
@@ -30,29 +26,11 @@ function AuthButtons() {
       });
   }
 
-  // function handleGithubSignIn() {
-  //   const provider = new GithubAuthProvider();
-
-  //   signInWithPopup(auth, provider)
-  //     .then((userCredential) => {
-  //       const userData = userCredential.user;
-  //       setUserData(userData);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
   return (
     <>
       <button style={{ fontSize: '1em' }} onClick={() => handleGoogleSignIn()}>
         <BsGoogle />
       </button>
-      {/* <button
-        className=" px-4 py-4 font-medium text-white bg-purple-700 rounded-md"
-        onClick={() => handleGithubSignIn()}
-      >
-        <BsGithub />
-      </button> */}
     </>
   );
 }

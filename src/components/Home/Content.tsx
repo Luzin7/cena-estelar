@@ -1,42 +1,36 @@
-import { useContext } from 'react';
-import Carousel from '../Carousel/Carousel';
-import { ContentsContext } from '../../hooks/contexts/LoadContents';
-import { bestRatings, lastSeens } from '../../functions/sortArrays';
-import FadeSwiper from '../Swiper';
+import { lazy, useContext } from 'react';
+import { ContentsContext } from '../../contexts/LoadContents';
 import filterMoviesByGenre from '../../functions/filterByGenre';
+import randomCategory from '../../functions/getRandomCategory';
+import { bestRatings, lastSeens } from '../../functions/sortArrays';
 import Loading from '../Loading';
+
+const Carousel = lazy(() => import('../Carousel/Carousel'));
+const FadeSwiper = lazy(() => import('../Swiper'));
 
 function Content() {
   const { allMovies, wishlist, allSeries } = useContext(ContentsContext);
 
-  // melhora e componentiza essa funcao
-  const randomCategory = () => {
-    const category = ['animação', 'terror', 'drama', 'comédia', 'suspense'];
-
-    const randomCategory = Math.floor(Math.random() * category.length);
-    return category[randomCategory];
-  };
-
   return (
-    <main className="home mainContainer">
+    <main>
       {wishlist ? (
         <>
           <FadeSwiper
-            contents={filterMoviesByGenre(allMovies?.movies, randomCategory())}
+            contents={filterMoviesByGenre(allMovies, randomCategory()) || []}
           />
           <Carousel
             title="Filmes vistos recentemente"
-            contents={lastSeens(allMovies?.movies) || []}
+            movies={lastSeens(allMovies) || []}
           />
           <Carousel
             title="Filmes bem avaliados"
-            contents={bestRatings(allMovies?.movies) || []}
+            movies={bestRatings(allMovies) || []}
           />
           <Carousel
             title="Series vistas recentemente"
-            contents={lastSeens(allSeries?.series) || []}
+            series={lastSeens(allSeries) || []}
           />
-          <Carousel title="Em breve" contents={wishlist || []} />
+          <Carousel title="Em breve" wishList={wishlist} />
         </>
       ) : (
         <Loading />

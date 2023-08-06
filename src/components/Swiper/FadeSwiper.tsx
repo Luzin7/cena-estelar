@@ -5,9 +5,9 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SectionProp from '../../interfaces/SearchedContent/FilteredSectionInterface';
+import SliderProps from '../../types/Swiper/ISlider';
 
-export default function FadeSwiper({ contents }: SectionProp) {
+export default function FadeSwiper({ contents }: SliderProps) {
   return (
     <section>
       <Swiper

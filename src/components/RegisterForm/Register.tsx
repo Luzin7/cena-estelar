@@ -1,13 +1,13 @@
-import { useContext, useState } from 'react';
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from 'firebase/auth';
-import { auth } from '../../services/firebase';
-import { UserDataContext } from '../../hooks/contexts/userData';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './css/register.css';
+import { UserDataContext } from '../../contexts/userData';
+import { auth } from '../../services/firebase';
 import AuthButtons from '../AuthButtons';
+import './css/register.css';
 export function RegisterForm() {
   const [formInfo, setFormInfo] = useState({
     email: '',
@@ -62,7 +62,6 @@ export function RegisterForm() {
           }}
         >
           <h3>Crie sua conta</h3>
-
           <label htmlFor="email">E-mail</label>
           <input
             value={email}

@@ -1,7 +1,6 @@
-import { createContext } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
-import { useState } from 'react';
-import { auth } from '../../services/firebase';
+import { createContext, useState } from 'react';
+import { auth } from '../services/firebase';
 
 interface ProviderProp {
   children: React.ReactNode;

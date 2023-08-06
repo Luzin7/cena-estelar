@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ContentsContext } from '../../hooks/contexts/LoadContents';
-import { SearchContext } from '../../hooks/contexts/Search';
+import { ContentsContext } from '../../contexts/LoadContents';
+import { SearchContext } from '../../contexts/Search';
+import FilteredSectionProp from '../../types/SearchedContent/IFilteredSection';
 import './css/searchedContent.css';
-import FilteredSectionProp from '../../interfaces/SearchedContent/FilteredSectionInterface';
 
 function FilteredSection({ title, contents }: FilteredSectionProp) {
   const { setUserQuery } = useContext(SearchContext);
@@ -32,18 +32,18 @@ function FilteredSection({ title, contents }: FilteredSectionProp) {
   );
 }
 
-function SearchedContent() {
+export function SearchedContent() {
   const { allMovies, allSeries } = useContext(ContentsContext);
   const { userQuery } = useContext(SearchContext);
 
-  const movieFiltered = allMovies?.movies?.filter((movie) =>
+  const movieFiltered = allMovies?.filter((movie) =>
     movie.name.toLowerCase().includes(userQuery.toLowerCase()),
   );
-  const moviesFound = movieFiltered ?? [];
-  const seriesFiltered = allSeries?.series?.filter((serie) =>
+  const moviesFound = movieFiltered;
+  const seriesFiltered = allSeries?.filter((serie) =>
     serie.name.toLowerCase().includes(userQuery.toLowerCase()),
   );
-  const seriesFound = seriesFiltered ?? [];
+  const seriesFound = seriesFiltered;
 
   return (
     <main className="mainContainer" id={userQuery !== '' ? 'show' : ''}>
@@ -65,4 +65,3 @@ function SearchedContent() {
   );
 }
 
-export default SearchedContent;

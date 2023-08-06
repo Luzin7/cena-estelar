@@ -3,27 +3,26 @@ import {
   getAllMovies,
   getAllSeries,
   getWishlist,
-} from '../../services/getContent';
-import ProviderProp from '../../interfaces/contexts/ContextsInterface';
-import WishlistType from '../../types/data/WishlistType';
-import LoadContentsContextProps from '../../interfaces/contexts/LoadContentInterface';
-import WatchedContentType from '../../types/data/ContentType';
-import WishlistProp from '../../interfaces/data/WishlistInterface';
+} from '../services/getContent';
+import ProviderProp from '../types/contexts/IContexts';
+import LoadContentsContextProps from '../types/contexts/ILoadContent';
+import ContentProps from '../types/data/IContent';
+import WishlistProps from '../types/data/IWishlist';
 
 export const ContentsContext = createContext<LoadContentsContextProps>({
-  allMovies: null,
+  allMovies: [],
   setAllMovies: () => {},
-  allSeries: null,
+  allSeries: [],
   setAllSeries: () => {},
-  wishlist: null,
+  wishlist: [],
   setWishlist: () => {},
 });
 
 export const ContentsProvider = ({ children }: ProviderProp) => {
-  const [allMovies, setAllMovies] = useState<WatchedContentType | null>(null);
-  const [allSeries, setAllSeries] = useState<WatchedContentType | null>(null);
+  const [allMovies, setAllMovies] = useState<ContentProps[]>([]);
+  const [allSeries, setAllSeries] = useState<ContentProps[]>([]);
 
-  const [wishlist, setWishlist] = useState<WishlistProp[] | null>(null);
+  const [wishlist, setWishlist] = useState<WishlistProps[]>([]);
 
   const loadContents = async () => {
     const getMovies = getAllMovies();
