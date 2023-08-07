@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .env
+.netlify
 
 # Editor directories and files
 .vscode/*
@@ -25,3 +26,6 @@ dist-ssr
 *.sw?
 *.css.map
 *.scss
+
+# Local Netlify folder
+.netlify
