@@ -2,5 +2,5 @@
 functions = "functions/"
 publish = "src"
 
-[dev]
-targetPort = 3000
+# [dev]
+# targetPort = 3000
