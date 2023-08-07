@@ -1,8 +1,8 @@
-import ContentProp from '../interfaces/data/ContentInterface';
+import ContentProps from '../types/data/IContent';
 
 const isEmptyArray = (array: any[]) => !array || array.length === 0;
 
-const bestRatings = (array: ContentProp[]) => {
+const bestRatings = (array: ContentProps[]) => {
   if (isEmptyArray(array)) {
     return null;
   }
@@ -12,7 +12,7 @@ const bestRatings = (array: ContentProp[]) => {
   return newArray.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
 };
 
-const lastSeens = (array: ContentProp[]) => {
+const lastSeens = (array: ContentProps[]) => {
   if (isEmptyArray(array)) {
     return null;
   }
@@ -20,7 +20,7 @@ const lastSeens = (array: ContentProp[]) => {
   return array.sort((a, b) => b.id - a.id);
 };
 
-const getWishlist = (array: ContentProp[]) => {
+const getWishlist = (array: ContentProps[]) => {
   if (isEmptyArray(array)) {
     return null;
   }

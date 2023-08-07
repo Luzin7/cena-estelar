@@ -4,13 +4,14 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCfERKXxWmHsf6PCYdUVeio4kizbMvlm8w',
-  authDomain: 'cenaestelar.firebaseapp.com',
-  projectId: 'cenaestelar',
-  storageBucket: 'cenaestelar.appspot.com',
-  messagingSenderId: '589385035964',
-  appId: '1:589385035964:web:e226a19e0d6f2fb18e60b9',
-  measurementId: 'G-QZ323TNH49',
+  apiKey: import.meta.env.VITE_REACT_APP_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_REACT_APP_FIREBASE_STORAGE,
+  messagingSenderId: import.meta.env
+    .VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_REACT_APP_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
