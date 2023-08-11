@@ -1,19 +1,24 @@
 :root {
-  --bg-color: #141414;
-  --bg-color-secondary: #222222;
-  --text-color: #ffffff;
-  --text-color-2: #e5e5e5;
-  --text-color-secondary: #b4b4b4;
-  --text-color-hover: #808080;
-  --color-primary: #8209d1;
-  --color-secondary: #ffffff;
-  --color-secondary-2: #c3c2b1;
+  --text: #1b141f;
+  --bg: #ffffff;
+  --primary: #8109d1;
+  --secondary: #cfcfcf;
+  --accent: #532a6f;
   color-scheme: light dark;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #ffffff;
+    --bg: #1b141f;
+    --primary: #8109d1;
+    --secondary: #272727;
+    --accent: #a26bc7;
+  }
+}
 .container {
-  color: var(--text-color);
+  color: var(--text);
   height: 100vh;
   margin: auto;
   display: flex;
@@ -45,32 +50,32 @@
   padding: 12px;
   border-radius: 7px;
   outline: none;
-  background-color: var(--bg-color-secondary);
+  background-color: var(--secondary);
   font-size: 1em;
   border: 1px solid transparent;
   transition: all 0.2s;
 }
 .container input:focus {
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--primary);
 }
 .container input::-moz-placeholder {
-  color: var(--text-color-secondary);
+  color: var(--secondary);
 }
 .container input::placeholder {
-  color: var(--text-color-secondary);
+  color: var(--secondary);
 }
 .container button {
   padding: 0.7rem 1.7rem;
-  background: var(--color-primary);
-  color: var(--color-secondary);
+  background: var(--primary);
+  color: var(--secondary);
   font-weight: 700;
   font-size: 1.4em;
   margin: 2em auto 0 auto;
   transition: all 0.2s;
 }
 .container button:hover {
-  color: var(--color-primary);
-  background: var(--text-color);
+  color: var(--primary);
+  background: var(--text);
 }
 .container button:active {
   transform: scale(0.8);
@@ -79,9 +84,9 @@
   text-align: center;
 }
 .container a {
-  color: var(--color-primary);
+  color: var(--primary);
   text-decoration: underline;
 }
 .container a:hover {
-  color: var(--text-color-hover);
+  color: var(--text);
 }/*# sourceMappingURL=register.css.map */

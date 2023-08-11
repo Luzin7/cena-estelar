@@ -1,6 +1,6 @@
-import { lazy, useContext } from 'react';
+import { useContext } from 'react';
 import { UserDataContext } from '../../../contexts/userData';
-const ProfileDropdown = lazy(() => import('./ProfileDropdown'));
+import ProfileDropdown from './ProfileDropdown';
 
 type UserAvatarProps = {
   isDropDownActive: boolean;
@@ -10,18 +10,19 @@ type UserAvatarProps = {
 
 function UserAvatar({ isDropDownActive, onClick, onBlur }: UserAvatarProps) {
   const { userData } = useContext(UserDataContext);
+  const defaultPfp =
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1024px-Default_pfp.svg.png';
 
   return (
     <div className="relative flex items-center justify-evenly w-[50px] h-[50px]">
-      {userData?.photoURL && (
-        <img
-          className="cursor-pointer object-cover w-[50px] h-[50px] rounded-xl"
-          src={userData.photoURL}
-          alt="User Image profile"
-          onClick={onClick}
-          onBlur={onBlur}
-        />
-      )}
+      <img
+        className="cursor-pointer object-cover w-[50px] h-[50px] rounded-full"
+        src={userData?.photoURL ? userData.photoURL : defaultPfp}
+        alt={`${userData?.displayName} Image profile`}
+        title="Menu"
+        onClick={onClick}
+        onBlur={onBlur}
+      />
       {isDropDownActive && (
         <ProfileDropdown isDropDownActive={isDropDownActive} />
       )}

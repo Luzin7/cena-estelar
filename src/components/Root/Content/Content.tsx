@@ -18,7 +18,7 @@ export function Content() {
         <Link to={HOME}>
           <button
             type="button"
-            className="bg-colorPrimary py-2.5 px-7 text-colorSecondary font-bold mt-5 md:py-5 lg:py-4 "
+            className="py-2.5 px-7 font-bold mt-5 md:py-5 lg:py-4 bg-primary text-"
           >
             Conferir conteúdo
           </button>

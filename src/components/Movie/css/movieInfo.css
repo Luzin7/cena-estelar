@@ -1,17 +1,22 @@
 :root {
-  --bg-color: #141414;
-  --bg-color-secondary: #222222;
-  --text-color: #ffffff;
-  --text-color-2: #e5e5e5;
-  --text-color-secondary: #b4b4b4;
-  --text-color-hover: #808080;
-  --color-primary: #8209d1;
-  --color-secondary: #ffffff;
-  --color-secondary-2: #c3c2b1;
+  --text: #1b141f;
+  --bg: #ffffff;
+  --primary: #8109d1;
+  --secondary: #cfcfcf;
+  --accent: #532a6f;
   color-scheme: light dark;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #ffffff;
+    --bg: #1b141f;
+    --primary: #8109d1;
+    --secondary: #272727;
+    --accent: #a26bc7;
+  }
+}
 .content {
   min-height: 90vh;
 }
@@ -46,7 +51,7 @@
 }
 .content .content_summary .content_thumbnail figcaption {
   opacity: 0.4;
-  color: var(--text-color-secondary);
+  color: var(--accent);
   text-align: center;
 }
 .content .content_summary .content_thumbnail:hover .summary_side {
@@ -88,7 +93,7 @@
   margin-right: 14px;
 }
 .content .content_summary .summary_side .content_rating .rating {
-  color: var(--text-color);
+  color: var(--text);
   font-weight: 700;
   font-size: 2em;
 }
@@ -99,7 +104,7 @@
 .content .content_review .review_title__wrap {
   margin-bottom: 2em;
   text-align: center;
-  color: var(--text-color);
+  color: var(--text);
 }
 .content .content_review .review_title__wrap h2 {
   font-size: 2.5em;
@@ -107,11 +112,12 @@
 .content .content_review .review_title__wrap small {
   font-size: 1em;
   font-style: italic;
-  color: var(--text-color-secondary);
+  color: var(--text);
+  opacity: 0.7;
 }
 .content .content_review p {
   line-height: 1.7em;
-  color: var(--text-color-2);
+  color: var(--text);
   font-size: 1.2em;
 }
 .content .recommendation {
@@ -135,7 +141,7 @@
   transition: all 0.2s;
 }
 .content .recommendation .recommended img:hover {
-  border: 2px solid var(--color-primary);
+  border: 2px solid var(--primary);
 }
 
 @media only screen and (max-width: 600px) {
@@ -172,7 +178,6 @@
   .content .content_review .review_title__wrap small {
     font-size: 1em;
     font-style: italic;
-    color: var(--text-color-secondary);
   }
   .content .content_review p {
     text-align: justify;

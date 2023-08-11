@@ -1,24 +1,29 @@
 :root {
-  --bg-color: #141414;
-  --bg-color-secondary: #222222;
-  --text-color: #ffffff;
-  --text-color-2: #e5e5e5;
-  --text-color-secondary: #b4b4b4;
-  --text-color-hover: #808080;
-  --color-primary: #8209d1;
-  --color-secondary: #ffffff;
-  --color-secondary-2: #c3c2b1;
+  --text: #1b141f;
+  --bg: #ffffff;
+  --primary: #8109d1;
+  --secondary: #cfcfcf;
+  --accent: #532a6f;
   color-scheme: light dark;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #ffffff;
+    --bg: #1b141f;
+    --primary: #8109d1;
+    --secondary: #272727;
+    --accent: #a26bc7;
+  }
+}
 footer {
-  height: 20vh;
+  min-height: 20vh;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-evenly;
   align-items: center;
-  background: var(--bg-color-secondary);
+  background: var(--secondary);
 }
 
 ul {
@@ -32,9 +37,9 @@ li {
 }
 
 span {
-  color: var(--text-color-secondary);
+  color: var(--text);
 }
 span a {
-  color: var(--text-color-secondary);
+  color: var(--text);
   text-decoration: underline;
 }/*# sourceMappingURL=footer.css.map */

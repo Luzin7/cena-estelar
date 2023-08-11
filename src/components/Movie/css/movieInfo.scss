@@ -37,7 +37,7 @@
       }
       & figcaption {
         opacity: 0.4;
-        color: getColor(text-color-secondary);
+        color: getColor(accent);
         text-align: center;
       }
 
@@ -89,7 +89,7 @@
         }
 
         & .rating {
-          color: getColor(text-color);
+          color: getColor(text);
           font-weight: $bold;
           font-size: 2em;
         }
@@ -102,7 +102,7 @@
     & .review_title__wrap {
       margin-bottom: 2em;
       text-align: center;
-      color: getColor(text-color);
+      color: getColor(text);
 
       & h2 {
         font-size: 2.5em;
@@ -111,13 +111,14 @@
       & small {
         font-size: 1em;
         font-style: italic;
-        color: getColor(text-color-secondary);
+        color: getColor(text);
+        opacity: 0.7;
       }
     }
 
     & p {
       line-height: 1.7em;
-      color: getColor(text-color-2);
+      color: getColor(text);
       font-size: 1.2em;
     }
   }
@@ -143,7 +144,7 @@
         transition: all 0.2s;
 
         &:hover {
-          border: 2px solid getColor(color-primary);
+          border: 2px solid getColor(primary);
         }
       }
     }
@@ -206,7 +207,6 @@
         & small {
           font-size: 1em;
           font-style: italic;
-          color: getColor(text-color-secondary);
         }
       }
 

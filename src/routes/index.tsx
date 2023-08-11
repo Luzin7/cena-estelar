@@ -1,18 +1,18 @@
 import { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {
-  ROOT,
-  HOME,
-  MOVIES,
-  MOVIE,
-  SEARCH,
-  RECOMMENDATION,
-  LOGIN,
-  REGISTER,
-} from '../utils/paths';
-import Error from '../pages/Error';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { PrivateRoutes } from '../helpers/protectRoutes';
+import Error from '../pages/Error';
+import {
+  HOME,
+  LOGIN,
+  MOVIE,
+  MOVIES,
+  RECOMMENDATION,
+  REGISTER,
+  ROOT,
+  SEARCH,
+} from '../utils/paths';
 
 const Root = lazy(() => import('../pages/Root'));
 const Login = lazy(() => import('../pages/Login'));
@@ -36,7 +36,14 @@ function Index() {
           <Route path={ROOT} element={<Root />} />
           <Route path={LOGIN} element={<Login />} />
           <Route path={REGISTER} element={<Register />} />
-          <Route path={HOME} element={<Home />} />
+          <Route
+            path={HOME}
+            element={
+              <Suspense fallback={<Loading />}>
+                <Home />
+              </Suspense>
+            }
+          />
           <Route path={MOVIES} element={<Movies />}>
             <Route path={MOVIE} element={<Movie />} />
           </Route>

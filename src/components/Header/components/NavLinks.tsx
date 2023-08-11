@@ -26,27 +26,18 @@ export function NavLinks() {
   return (
     <ul className="flex justify-center items-center gap-6 font-medium">
       <Link to={HOME}>
-        <li
-          id={isHomePage ? 'active' : ''}
-          className="text-colorTextSecondary text-xl transition-all hover:text-colorTextHover home"
-        >
+        <li id={isHomePage ? 'active' : ''} className="text-xl home">
           Início
         </li>
       </Link>
       <Link to={MOVIES}>
-        <li
-          id={isMoviesPage ? 'active' : ''}
-          className="text-colorTextSecondary text-xl hover:text-colorTextHover transition-all movies"
-        >
+        <li id={isMoviesPage ? 'active' : ''} className="text-xl movies">
           Filmes
         </li>
       </Link>
       {!userIsLogged && (
         <Link to={RECOMMENDATION}>
-          <li
-            id={isMoviesPage ? 'active' : ''}
-            className="text-colorTextSecondary text-xl hover:text-colorTextHover transition-all movies"
-          >
+          <li id={isMoviesPage ? 'active' : ''} className="text-xl movies">
             Recomendar
           </li>
         </Link>

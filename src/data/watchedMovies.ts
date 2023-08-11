@@ -602,7 +602,7 @@ const MOVIES: ContentProps[] = [
     rating: '4',
     img: 'https://image.tmdb.org/t/p/w500/yRRuLt7sMBEQkHsd1S3KaaofZn7.jpg',
     media: 'https://media.tenor.com/gNRysP_hvwQAAAAC/barbie-movie-waving.gif',
-    genres: ['aventura, comédia, família'],
+    genres: ['aventura', 'comédia', 'família'],
     banner:
       'https://knightedgemedia.com/wp-content/uploads/2022/12/barbie-movie-teaser-banner1.jpg',
   },
@@ -618,7 +618,7 @@ const MOVIES: ContentProps[] = [
     img: 'https://image.tmdb.org/t/p/w500/itYONYDHpJqTuu8BCXAtHxgpglq.jpg',
     media:
       'https://thumbs.gfycat.com/IllfatedCreamyIndianglassfish-size_restricted.gif',
-    genres: ['ação, ficção científica, fantasia'],
+    genres: ['ação', 'ficção científica', 'fantasia'],
     banner:
       'https://legadodadc.com.br/wp-content/uploads/2023/05/banner-the-flash-legadodadc.webp',
   },
@@ -635,7 +635,7 @@ const MOVIES: ContentProps[] = [
     img: 'https://image.tmdb.org/t/p/w500/bkhHsHoa5PYBmhT93mYOC28Hhd2.jpg',
     media:
       'https://pa1.aminoapps.com/6657/f1298d718dfff9a03cb922cef6790091220e72b4_hq.gif',
-    genres: ['comédia, drama'],
+    genres: ['comédia', 'drama'],
     banner:
       'https://legadodadc.com.br/wp-content/uploads/2023/05/banner-the-flash-legadodadc.webp',
   },
@@ -652,7 +652,7 @@ const MOVIES: ContentProps[] = [
     img: 'https://image.tmdb.org/t/p/w500/AvMietG6xuobpSSdmVnKuTjv4bL.jpg',
     media:
       'https://imgs.search.brave.com/b-Tv4Pz70t-vpRBqeEdWMIlNxVgsMr9wrAG31fO557U/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YTEudGVub3IuY29t/L2ltYWdlcy8yZTI5/YmUzYWZhMGEzYWRk/MDgzMmIwODhkZGI4/NmEwMS90ZW5vci5n/aWY_aXRlbWlkPTc3/NzcyMzk.gif',
-    genres: ['comédia, musical, romance'],
+    genres: ['comédia', 'musical', 'romance'],
     banner: 'https://images.alphacoders.com/808/808916.jpg',
   },
   {

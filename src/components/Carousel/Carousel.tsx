@@ -1,28 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FreeMode, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { ViewPortContext } from '../../contexts/ViewPort';
 import CarouselProps from '../../types/Swiper/ICarousel';
 
 function Carousel({ title, movies, series, wishList }: CarouselProps) {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const { windowWidth } = useContext(ViewPortContext);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const responsiveSlideView = (windowWidth: number) => {
+  const calculateColumns = (windowWidth: number) => {
     const mobileM = 375;
     const tablet = 768;
     const laptop = 1024;
@@ -72,7 +61,7 @@ function Carousel({ title, movies, series, wishList }: CarouselProps) {
     <section className="categoriesSection">
       <h2 className="section_title">{title}</h2>
       <Swiper
-        slidesPerView={responsiveSlideView(windowWidth)}
+        slidesPerView={calculateColumns(windowWidth)}
         grabCursor={true}
         freeMode={true}
         modules={[FreeMode, Navigation]}

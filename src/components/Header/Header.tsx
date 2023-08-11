@@ -16,17 +16,17 @@ export function Header() {
   };
 
   return (
-    <header className="flex flex-row flex-nowrap place-items-center justify-around min-h-[8vh] bg-colorBg">
+    <header className="flex flex-row flex-nowrap place-items-center justify-around min-h-[8vh]">
       <MenuButton isAriaActive={isAriaActive} onClick={handleMobileMenu} />
       <nav
-        className={`bg-colorBg fixed ${
+        className={`fixed ${
           isAriaActive ? 'block' : 'hidden'
         } flex-col flex-wrap items-center justify-center h-[10vh] w-screen left-0 top-[8vh] z-10 md:static md:flex-row md:justify-center md:h-[7vh] md:w-auto md:top-0 md:flex md:gap-8`}
       >
         <Logo />
         <NavLinks />
       </nav>
-      <div className="flex justify-evenly gap-11">
+      <div className="flex justify-evenly gap-7">
         <SearchBar />
         <UserAvatar
           isDropDownActive={isDropDownActive}

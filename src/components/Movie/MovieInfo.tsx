@@ -69,37 +69,29 @@ function MovieInfo() {
   };
 
   const recommendMoviesByGenre = () => {
-    const genre = () => {
-      const getRandomGenreByMovie =
-        genres[Math.floor(Math.random() * genres.length)];
-      return getRandomGenreByMovie;
-    };
+    const selectedGenre = genres[Math.floor(Math.random() * genres.length)];
 
-    const selectedGenre = genre();
+    const recommendedMovies = allMovies
+      .filter((movie) => movie.genres.includes(selectedGenre))
+      .filter((movie) => movie.name !== name)
+      .slice(0, 6);
 
-    if (allMovies) {
-      const recommendedMovies = allMovies
-        .filter((movie) => movie.genres.includes(selectedGenre))
-        .filter((movie) => movie.name !== name)
-        .slice(0, 6);
-
-      if (recommendedMovies && recommendedMovies.length > 0) {
-        return recommendedMovies.map((movie) => (
-          <Link
-            to={`/movies/movie/${encodeURIComponent(movie.name)}`}
-            key={movie.id}
-          >
-            <img src={movie.img} alt={`front banner of ${movie.name}`} />
-          </Link>
-        ));
-      } else {
-        return (
-          <p>
-            Parece que não foi encontrado nenhum filme baseado na categoria.
-            Pedimos desculpas por isso.
-          </p>
-        );
-      }
+    if (recommendedMovies && recommendedMovies.length > 0) {
+      return recommendedMovies.map((movie) => (
+        <Link
+          to={`/movies/movie/${encodeURIComponent(movie.name)}`}
+          key={movie.id}
+        >
+          <img src={movie.img} alt={`front banner of ${movie.name}`} />
+        </Link>
+      ));
+    } else {
+      return (
+        <p>
+          Parece que não foi encontrado nenhum filme baseado na categoria.
+          Pedimos desculpas por isso.
+        </p>
+      );
     }
   };
 

@@ -4,9 +4,9 @@ import filterMoviesByGenre from '../../functions/filterByGenre';
 import randomCategory from '../../functions/getRandomCategory';
 import { bestRatings, lastSeens } from '../../functions/sortArrays';
 import Loading from '../Loading';
+import FadeSwiper from '../Swiper';
 
 const Carousel = lazy(() => import('../Carousel/Carousel'));
-const FadeSwiper = lazy(() => import('../Swiper'));
 
 function Content() {
   const { allMovies, wishlist, allSeries } = useContext(ContentsContext);

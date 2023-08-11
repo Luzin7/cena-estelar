@@ -22,7 +22,7 @@ export function Navbar() {
           </a>
         </li>
         <Link to={HOME}>
-          <li className="border-2 border-colorPrimary rounded-xl py-2 px-6">
+          <li className="border-2 border-primary opacity-100 rounded-xl py-2 px-6">
             Início
           </li>
         </Link>
