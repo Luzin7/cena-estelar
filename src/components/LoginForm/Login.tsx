@@ -1,41 +1,70 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import {
   browserLocalPersistence,
   setPersistence,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { z } from 'zod';
 import { UserDataContext } from '../../contexts/userData';
 import { auth } from '../../services/firebase';
-import { HOME } from '../../utils/paths';
+import { HOME, REGISTER } from '../../utils/paths';
 import AuthButtons from '../AuthButtons';
 import './css/login.css';
+
+const schemaLoginForm = z.object({
+  userData: z.object({
+    email: z.string().min(4, 'Por favor, informe um email válido'),
+    password: z
+      .string()
+      .min(6, 'Por favor, insira uma senha válida')
+      .max(
+        16,
+        'Tamanho da senha maior do que 16 caracteres não são permitidos',
+      ),
+  }),
+});
+
+type formProps = z.infer<typeof schemaLoginForm>;
+
 export function LoginForm() {
-  const [formInfo, setFormInfo] = useState({
-    email: '',
-    password: '',
-  });
   const { setUserData, setUserIsLogged } = useContext(UserDataContext);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const { email, password } = formInfo;
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<formProps>({
+    criteriaMode: 'all',
+    mode: 'all',
+    resolver: zodResolver(schemaLoginForm),
+    defaultValues: {
+      userData: {
+        email: '',
+        password: '',
+      },
+    },
+  });
 
-  interface loginProp {
-    email: string;
-    password: string;
-  }
+  const handleFormSubmit = (data: formProps) => {
+    const { userData } = data;
 
-  function loginAuth({ email, password }: loginProp) {
     const emailRegex: RegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
     const passwordRegex =
       /^(?=.*[A-Z])(?=.*\d)(?!.*\s)(?!.*([a-zA-Z])\1{3,})(?!.*\.{17,}).{6,16}$/;
 
     setIsLoading(true);
 
-    if (!emailRegex.test(email) || !passwordRegex.test(password)) {
+    if (
+      !emailRegex.test(userData.email) ||
+      !passwordRegex.test(userData.password)
+    ) {
       alert(
-        'Email ou senha inválidos. A senha deve conter ao menos uma letra maiúscula, um número e deve conter 6 ou mais caracteres.',
+        'Email ou senha não são válidos. Certifique de ter colocado um email válido ou uma senha que siga os padrões de seguranças: pelo menos uma letra maiúscula, um número e a senha deve ter, no mínimo, 6 caracteres.',
       );
       setIsLoading(false);
       return;
@@ -43,7 +72,7 @@ export function LoginForm() {
 
     setPersistence(auth, browserLocalPersistence)
       .then(() => {
-        signInWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword(auth, userData.email, userData.password)
           .then((userCredential) => {
             const userData = userCredential.user;
             setUserData(userData);
@@ -58,56 +87,41 @@ export function LoginForm() {
           });
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.message);
       });
-  }
+  };
 
   return (
     <div className="container">
       <div className="form_wrapper">
-        <form
-          className="form"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-        >
+        <form className="form" onSubmit={handleSubmit(handleFormSubmit)}>
           <h3>Acesse sua conta</h3>
           <label htmlFor="email">E-mail</label>
           <input
-            value={email}
-            onChange={({ target }) =>
-              setFormInfo((prevFormInfo) => ({
-                ...prevFormInfo,
-                email: target.value,
-              }))
-            }
             type="email"
-            name="email"
             id="email"
-            required
+            {...register('userData.email')}
+            placeholder="Email"
           />
+          {errors.userData?.email?.message && (
+            <span>{errors.userData?.email?.message}</span>
+          )}
           <label htmlFor="password">Senha</label>
           <input
-            value={password}
-            onChange={({ target }) =>
-              setFormInfo((prevFormInfo) => ({
-                ...prevFormInfo,
-                password: target.value,
-              }))
-            }
             type="password"
-            name="password"
+            autoComplete="currentPassword"
             id="password"
-            required
+            {...register('userData.password')}
+            placeholder="Senha"
           />
-          <button
-            onClick={() => loginAuth({ email, password })}
-            disabled={isLoading ? true : false}
-          >
-            {isLoading ? '...' : 'Entrar'}
+          {errors.userData?.password?.message && (
+            <span>{errors.userData?.password?.message}</span>
+          )}
+          <button type="submit" disabled={isLoading ? true : false}>
+            {isLoading ? 'Entrando...' : 'Entrar'}
           </button>
           <span>
-            Ainda não tem uma conta? <Link to={'/register'}>Crie aqui.</Link>
+            Ainda não tem uma conta? <Link to={REGISTER}>Crie aqui.</Link>
           </span>
           <AuthButtons />
         </form>
