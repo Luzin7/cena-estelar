@@ -8,7 +8,7 @@ type MenuProps = {
 function MenuButton({ isAriaActive, onClick }: MenuProps) {
   return (
     <button
-      className="text-[42.5px] bg-colorPrimary rounded-md sm:hidden"
+      className="text-[42.5px] rounded-md sm:hidden"
       aria-expanded={isAriaActive}
       onClick={onClick}
     >
