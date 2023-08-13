@@ -17,7 +17,7 @@ function FilteredSection({ title, contents }: FilteredSectionProp) {
               <img src={img} alt={`front banner of ${name}`} />
             ) : (
               <Link
-                to={`/movies/movie/${id}`}
+                to={`/movie/${encodeURIComponent(name)}`}
                 onClick={() => {
                   setUserQuery('');
                 }}
@@ -64,4 +64,3 @@ export function SearchedContent() {
     </main>
   );
 }
-
