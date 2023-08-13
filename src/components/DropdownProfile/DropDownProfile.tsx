@@ -12,10 +12,8 @@ export default function DropDownProfile() {
     auth
       .signOut()
       .then(() => {
-        console.log('Logout realizado com sucesso.');
-        setUserIsLogged(false);
+        localStorage.setItem('userIsLogged', 'false');
         navigate(HOME);
-
         window.location.reload();
       })
       .catch((error) => {
