@@ -674,3 +674,4 @@ const MOVIES: ContentProps[] = [
   },
 ];
 export default MOVIES;
+
