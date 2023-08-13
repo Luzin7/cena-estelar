@@ -27,11 +27,9 @@ function AuthButtons() {
   }
 
   return (
-    <>
-      <button style={{ fontSize: '1em' }} onClick={() => handleGoogleSignIn()}>
+      <button className='text-2xl' onClick={() => handleGoogleSignIn()}>
         <BsGoogle />
       </button>
-    </>
   );
 }
 
