@@ -92,22 +92,33 @@ export function LoginForm() {
   };
 
   return (
-    <div className="container">
-      <div className="form_wrapper">
-        <form className="form" onSubmit={handleSubmit(handleFormSubmit)}>
-          <h3>Acesse sua conta</h3>
-          <label htmlFor="email">E-mail</label>
+    <div className="container flex justify-center items-center m-auto">
+      <div className="form_wrapper w-full md:w-4/5 lg:w-2/5">
+        <form
+          className="form rounded-lg flex flex-col flex-wrap justify-center items-center gap-4 p-8"
+          onSubmit={handleSubmit(handleFormSubmit)}
+        >
+          <h3 className="text-4xl font-bold mb-7">Acesse sua conta</h3>
+          <label className="self-start" htmlFor="email">
+            E-mail
+          </label>
           <input
+            className="w-full p-4 outline-none rounded-lg text-base placeholder:opacity-50"
             type="email"
             id="email"
             {...register('userData.email')}
             placeholder="Email"
           />
           {errors.userData?.email?.message && (
-            <span>{errors.userData?.email?.message}</span>
+            <span className="text-red-400">
+              {errors.userData?.email?.message}
+            </span>
           )}
-          <label htmlFor="password">Senha</label>
+          <label className="self-start" htmlFor="password">
+            Senha
+          </label>
           <input
+            className="w-full p-4 outline-none rounded-lg text-base placeholder:opacity-50"
             type="password"
             autoComplete="currentPassword"
             id="password"
@@ -115,15 +126,29 @@ export function LoginForm() {
             placeholder="Senha"
           />
           {errors.userData?.password?.message && (
-            <span>{errors.userData?.password?.message}</span>
+            <span className="text-red-400">
+              {errors.userData?.password?.message}
+            </span>
           )}
-          <button type="submit" disabled={isLoading ? true : false}>
+          <button
+            className="py-3 w-full font-semibold text-lg mt-7"
+            type="submit"
+            disabled={isLoading ? true : false}
+          >
             {isLoading ? 'Entrando...' : 'Entrar'}
           </button>
-          <span>
-            Ainda não tem uma conta? <Link to={REGISTER}>Crie aqui.</Link>
-          </span>
+          <div className="flex items-center pt-4">
+            <div className="line"></div>
+            <p className="px-4">Login com Google</p>
+            <div className="line"></div>
+          </div>
           <AuthButtons />
+          <span className="pt-4">
+            Ainda não tem uma conta?{' '}
+            <Link className="font-bold underline" to={REGISTER}>
+              Crie aqui.
+            </Link>
+          </span>
         </form>
       </div>
     </div>
