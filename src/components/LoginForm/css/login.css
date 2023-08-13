@@ -19,37 +19,10 @@
 }
 .container {
   color: var(--text);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container h3 {
-  margin-bottom: 1em;
-  font-size: 2em;
-  font-weight: 500;
-  text-align: center;
-}
-.container .form {
-  min-width: 350px;
-  border-radius: 7px;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  gap: 1em;
-  padding: 2em;
-  box-shadow: 0 0 50px black;
-}
-.container label {
-  font-weight: 500;
-  font-size: 1.4em;
+  min-height: 100vh;
 }
 .container input {
-  padding: 12px;
-  border-radius: 7px;
-  outline: none;
   background-color: var(--secondary);
-  font-size: 1em;
   border: 1px solid transparent;
   transition: all 0.2s;
 }
@@ -62,26 +35,27 @@
 .container input::placeholder {
   color: var(--text);
 }
-.container button {
-  padding: 0.7rem 1.7rem;
+.container .line {
+  width: 100px;
+  height: 1px;
+  flex: 1 1 0%;
+  background: var(--accent);
+}
+.container button[type=submit] {
   background: var(--primary);
-  color: var(--secondary);
-  font-weight: 700;
-  font-size: 1.4em;
-  margin: 1.5em auto 0 auto;
+  color: white;
   transition: all 0.2s;
 }
-.container button:hover {
+.container button[type=submit]:hover {
   color: var(--primary);
   background: var(--text);
 }
-.container button:active {
+.container button[type=submit]:active {
   transform: scale(0.8);
 }
 .container a {
   color: var(--primary);
-  text-decoration: underline;
 }
 .container a:hover {
-  color: var(--text);
+  color: var(--accent);
 }/*# sourceMappingURL=login.css.map */
