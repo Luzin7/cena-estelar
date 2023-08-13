@@ -25,6 +25,7 @@
     }
   },
   "rules": {
+    "prettier/prettier": "error",
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
     "import/no-extraneous-dependencies": [
       "error",
