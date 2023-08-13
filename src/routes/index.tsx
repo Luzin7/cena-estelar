@@ -4,6 +4,7 @@ import Loading from '../components/Loading';
 import { PrivateRoutes } from '../helpers/protectRoutes';
 import Error from '../pages/Error';
 import {
+  CATEGORIES,
   HOME,
   LOGIN,
   MOVIE,
@@ -30,7 +31,14 @@ function Index() {
         <Routes>
           {/* private routes */}
           <Route element={<PrivateRoutes />}>
-            <Route path={RECOMMENDATION} element={<Recommendation />} />
+            <Route
+              path={RECOMMENDATION}
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Recommendation />
+                </Suspense>
+              }
+            />
           </Route>
           {/* public routes */}
           <Route path={ROOT} element={<Root />} />
@@ -44,10 +52,15 @@ function Index() {
               </Suspense>
             }
           />
-          <Route path={MOVIES} element={<Movies />}>
-            <Route path={MOVIE} element={<Movie />} />
-          </Route>
-
+          <Route
+            path={CATEGORIES}
+            element={
+              <Suspense fallback={<Loading />}>
+                <Movies />
+              </Suspense>
+            }
+          />
+          <Route path={MOVIE} element={<Movie />} />
           <Route path={SEARCH} element={<SearchPage />} />
           <Route path="*" element={<Error />} />
         </Routes>
