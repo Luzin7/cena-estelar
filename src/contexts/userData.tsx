@@ -17,27 +17,18 @@ export const UserDataContext = createContext({} as UserData);
 
 export const UserDataProvider = ({ children }: ProviderProp) => {
   const [userData, setUserData] = useState<User | null>(null);
-  const [userIsLogged, setUserIsLogged] = useState<boolean>(false);
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const [userIsLogged, setUserIsLogged] = useState<boolean>(isLoggedIn);
 
   onAuthStateChanged(auth, (user) => {
     if (user?.emailVerified) {
       setUserData(user);
-      setUserIsLogged(true);
+      localStorage.setItem('isLoggedIn', 'true');
     } else {
       setUserData(null);
       setUserIsLogged(false);
     }
   });
-
-  if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
 
   return (
     <UserDataContext.Provider
