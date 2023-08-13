@@ -1,7 +1,7 @@
 import { useContext, useLayoutEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { UserDataContext } from '../../../contexts/userData';
-import { HOME, MOVIES, RECOMMENDATION } from '../../../utils/paths';
+import { CATEGORIES, HOME, RECOMMENDATION } from '../../../utils/paths';
 
 export function NavLinks() {
   const [isHomePage, setIsHomePage] = useState<boolean>(false);
@@ -12,7 +12,7 @@ export function NavLinks() {
 
   useLayoutEffect(() => {
     const homePath: boolean = pathname === HOME;
-    const moviesPath: boolean = pathname === MOVIES;
+    const moviesPath: boolean = pathname === CATEGORIES;
 
     if (homePath) {
       setIsMoviesPage(false);
@@ -24,15 +24,15 @@ export function NavLinks() {
     }
   }, [pathname]);
   return (
-    <ul className="flex justify-center items-center gap-6 font-medium">
+    <ul className="flex justify-center items-center gap-6 font-medium bg-stone-950 py-4 md:bg-transparent md:py-0">
       <Link to={HOME}>
         <li id={isHomePage ? 'active' : ''} className="text-xl home">
           Início
         </li>
       </Link>
-      <Link to={MOVIES}>
+      <Link to={CATEGORIES}>
         <li id={isMoviesPage ? 'active' : ''} className="text-xl movies">
-          Filmes
+          Categorias
         </li>
       </Link>
       {!userIsLogged && (
