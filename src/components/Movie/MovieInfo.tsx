@@ -22,6 +22,7 @@ function MovieInfo() {
     rating = '',
     media = '',
     genres = [],
+    originalTitle = '',
   } = movieInfo || {};
 
   useEffect(() => {
@@ -105,7 +106,7 @@ function MovieInfo() {
                   <figure>
                     <img src={media} alt={name} />
                   </figure>
-                  <figcaption>{name}</figcaption>
+                  <figcaption>{originalTitle}</figcaption>
                   <div className="summary_side">
                     <div className="content_infos">{showGenre()}</div>
                     <div className="content_rating">{showRating()}</div>
