@@ -6,13 +6,16 @@ import { UserDataProvider } from './contexts/userData';
 import Index from './routes/index';
 import './styles/index.css';
 import './styles/styles.css';
+import { ViewPortProvider } from './contexts/ViewPort';
 
 ReactDOM.createRoot(document.getElementById('root') as Element).render(
   <React.StrictMode>
     <ContentsProvider>
       <SearchProvider>
         <UserDataProvider>
-          <Index />
+          <ViewPortProvider>
+            <Index />
+          </ViewPortProvider>
         </UserDataProvider>
       </SearchProvider>
     </ContentsProvider>
