@@ -29,7 +29,7 @@ export default function DropDownProfile() {
         </Link>
       </li>
       <li>
-        <Link to={ROOT}>Contato e Suporte</Link>
+        <Link to={ROOT}>Contato e Sobre</Link>
       </li>
       {userIsLogged && (
         <li onClick={handleLogout}>
