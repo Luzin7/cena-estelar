@@ -10,11 +10,18 @@ function FilteredSection({ title, contents }: FilteredSectionProp) {
   return (
     <section className="categoriesSection">
       <h2 className="section_title">{title}</h2>
-      <div className="searched_content_wrapper">
+      <div className="flex flex-wrap ">
         {contents.map(({ id, name, img }) => (
-          <div className="item_searched" key={id}>
+          <div
+            className="flex flex-wrap justify-start mt-4 mb-4 ml-3 mr-3"
+            key={id}
+          >
             {id === 0 ? (
-              <img src={img} alt={`front banner of ${name}`} />
+              <img
+                className="w-[25vw] lg:w-[15vw] h-full object-cover rounded border-2 border-transparent hover:border-primary transition-all"
+                src={img}
+                alt={`front banner of ${name}`}
+              />
             ) : (
               <Link
                 to={`/movie/${encodeURIComponent(name)}`}
@@ -22,7 +29,11 @@ function FilteredSection({ title, contents }: FilteredSectionProp) {
                   setUserQuery('');
                 }}
               >
-                <img src={img} alt={`front banner of ${name}`} />
+                <img
+                  className="w-[25vw] lg:w-[15vw] h-full object-cover rounded border-2 border-transparent hover:border-primary  transition-all"
+                  src={img}
+                  alt={`front banner of ${name}`}
+                />
               </Link>
             )}
           </div>
