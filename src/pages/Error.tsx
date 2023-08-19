@@ -1,8 +1,9 @@
+import { ErrorPage } from '../components/Error/Error';
+
 function Error() {
   return (
-    <div>
-      <h1>Oops!</h1>
-      <p>Você foi além do que pudemos avaliar.</p>
+    <div className="flex flex-wrap justify-center items-center h-screen">
+      <ErrorPage />
     </div>
   );
 }
