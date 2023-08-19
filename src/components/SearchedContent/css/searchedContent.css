@@ -1,48 +1,3 @@
-:root {
-  --text: #1b141f;
-  --bg: #ffffff;
-  --primary: #8109d1;
-  --secondary: #cfcfcf;
-  --accent: #532a6f;
-  color-scheme: light dark;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #ffffff;
-    --bg: #1b141f;
-    --primary: #8109d1;
-    --secondary: #272727;
-    --accent: #a26bc7;
-  }
-}
-.searched_content_wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  opacity: 1;
-}
-
-.item_searched {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: left;
-  margin: 1em 0.7em;
-}
-.item_searched img {
-  width: 12vw;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 0.2em;
-  border: 2px solid rgba(0, 0, 0, 0);
-  transition: all 0.2s;
-}
-.item_searched img:hover {
-  border: 2px solid var(--color-primary);
-  transform: scale(1.1);
-}
-
 #show {
   animation: show 0.2s ease-in-out;
 }
@@ -53,17 +8,5 @@
   }
   to {
     opacity: 1;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .searched_content_wrapper {
-    justify-content: center;
-  }
-  .item_searched img {
-    width: 25vw;
-  }
-  .item_searched img:hover {
-    border: 2px solid var(--color-primary);
-    transform: scale(1);
   }
 }/*# sourceMappingURL=searchedContent.css.map */
