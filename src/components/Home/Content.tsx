@@ -13,7 +13,7 @@ function Content() {
 
   return (
     <main>
-      {wishlist ? (
+      {wishlist && allMovies ? (
         <>
           <FadeSwiper
             contents={filterMoviesByGenre(allMovies, randomCategory()) || []}

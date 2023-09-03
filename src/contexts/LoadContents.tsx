@@ -25,7 +25,7 @@ export const ContentsProvider = ({ children }: ProviderProp) => {
   const [wishlist, setWishlist] = useState<WishlistProps[]>([]);
 
   const loadContents = async () => {
-    const getMovies = getAllMovies();
+    const getMovies = await getAllMovies();
     const getSeries = getAllSeries();
     const allWishlist = await getWishlist();
 
